@@ -15,6 +15,12 @@
     "closeMenu": "Close menu",
     "skipToContent": "Skip to content"
   },
+  "notFound": {
+    "code": "ERR-404 / OFF THE PLAN",
+    "title": "This parcel doesn't exist.",
+    "description": "The address you followed points outside the drawn boundary. Head back to the site plan.",
+    "home": "Back to home"
+  },
   "footer": {
     "note": "© 2026 Yaser Zarifi — drawn & built"
   },

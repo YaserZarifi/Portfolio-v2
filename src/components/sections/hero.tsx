@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import {
-  motion,
+  m,
   useReducedMotion,
   useScroll,
   useTransform,
@@ -35,7 +35,7 @@ function DrawnGrid({ animate }: { animate: boolean }) {
       preserveAspectRatio="none"
     >
       {GRID_LINES.map((line, i) => (
-        <motion.line
+        <m.line
           key={i}
           {...line}
           stroke="currentColor"
@@ -50,7 +50,7 @@ function DrawnGrid({ animate }: { animate: boolean }) {
         />
       ))}
       {/* Plot marker at the grid intersection — the site under study. */}
-      <motion.circle
+      <m.circle
         cx={22}
         cy={30}
         r={1.4}
@@ -86,30 +86,30 @@ export function Hero({ profile }: { profile: Profile }) {
   return (
     <section ref={ref} className="relative overflow-hidden border-b border-line">
       <div className="bg-drafting-grid absolute inset-0" aria-hidden />
-      <motion.div
+      <m.div
         style={animate ? { y: gridY } : undefined}
         className="absolute inset-0"
       >
         <DrawnGrid animate={animate} />
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         style={animate ? { opacity: sheetOpacity } : undefined}
         className="relative mx-auto flex min-h-[calc(100dvh-3.5rem)] max-w-6xl flex-col justify-center px-6 py-24"
       >
-        <motion.p
+        <m.p
           initial={animate ? { opacity: 0, x: dx(-24) } : false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, type: "spring", stiffness: 260, damping: 26 }}
           className="annotation mb-6 text-accent"
         >
           {t("kicker")}
-        </motion.p>
+        </m.p>
 
-        <motion.div style={animate ? { y: titleY } : undefined}>
+        <m.div style={animate ? { y: titleY } : undefined}>
           <h1 className="relative max-w-3xl text-balance text-5xl font-semibold leading-tight tracking-tight sm:text-6xl">
             {/* Blueprint outline that the solid title settles over. */}
-            <motion.span
+            <m.span
               aria-hidden
               initial={animate ? { opacity: 0.9 } : false}
               animate={{ opacity: 0 }}
@@ -118,8 +118,8 @@ export function Hero({ profile }: { profile: Profile }) {
               style={{ WebkitTextStroke: "1px var(--fg-muted)" }}
             >
               {t("title")}
-            </motion.span>
-            <motion.span
+            </m.span>
+            <m.span
               initial={animate ? { opacity: 0, y: 14 } : false}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -131,10 +131,10 @@ export function Hero({ profile }: { profile: Profile }) {
               className="inline-block"
             >
               {t("title")}
-            </motion.span>
+            </m.span>
           </h1>
 
-          <motion.p
+          <m.p
             initial={animate ? { opacity: 0, y: 16 } : false}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -146,10 +146,10 @@ export function Hero({ profile }: { profile: Profile }) {
             className="mt-4 text-2xl text-fg-muted"
           >
             {t("subtitle")}
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={animate ? { opacity: 0, y: 16 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.7, type: "spring", stiffness: 240, damping: 26 }}
@@ -161,17 +161,17 @@ export function Hero({ profile }: { profile: Profile }) {
           <Button as="a" variant="outline" href={profile.cvUrl} download>
             {t("downloadCv")}
           </Button>
-        </motion.div>
+        </m.div>
 
-        <motion.p
+        <m.p
           initial={animate ? { opacity: 0 } : false}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.1, duration: 0.6 }}
           className="annotation mt-16"
         >
           {profile.location} — N 35.6892° / E 51.3890°
-        </motion.p>
-      </motion.div>
+        </m.p>
+      </m.div>
     </section>
   );
 }
