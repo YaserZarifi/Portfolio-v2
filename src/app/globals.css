@@ -14,6 +14,12 @@
   --fg-muted: #a1a1aa;
   --line: #26262a;
   --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.12);
+  --err: #ef4444;
+  --ok: #22c55e;
+
+  /* Drafting-grid texture line — derived from fg so it adapts per theme. */
+  --grid-line: color-mix(in srgb, var(--fg) 4%, transparent);
 
   /* Per-locale primary family; [lang="fa"] remaps it below. */
   --font-sans-active: var(--font-plex-sans), ui-sans-serif, system-ui,
@@ -26,6 +32,9 @@
   --fg: #0a0a0b;
   --fg-muted: #52525b;
   --line: #e4e4e7;
+  --err: #dc2626;
+  --ok: #16a34a;
+  --grid-line: color-mix(in srgb, var(--fg) 5%, transparent);
 }
 
 html[lang="fa"] {
@@ -40,6 +49,9 @@ html[lang="fa"] {
   --color-fg-muted: var(--fg-muted);
   --color-line: var(--line);
   --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-err: var(--err);
+  --color-ok: var(--ok);
 
   --font-sans: var(--font-sans-active);
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
@@ -54,4 +66,36 @@ body {
 /* Persian body text breathes better with a taller line. */
 html[lang="fa"] body {
   line-height: 1.9;
+}
+
+/* Keyboard focus — accent hairline, offset like a selection marquee. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fafafa;
+}
+
+/* Drafting-table grid texture (hero / section surfaces). */
+.bg-drafting-grid {
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+}
+
+/* Mono annotation — drawing labels, section indices, coordinates. */
+.annotation {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+/* Persian text inside annotations shouldn't be force-uppercased spacing-wise. */
+html[lang="fa"] .annotation {
+  letter-spacing: 0;
 }

@@ -12,6 +12,9 @@
     "switchLocale": "فارسی",
     "switchTheme": "Toggle theme"
   },
+  "footer": {
+    "note": "© 2026 Yaser Zarifi — drawn & built"
+  },
   "hero": {
     "kicker": "PORTFOLIO — V2.0",
     "title": "I design systems people live in.",
