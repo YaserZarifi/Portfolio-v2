@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@custom-variant light (&:where(.light, .light *));
+
+/*
+ * Semantic color tokens — "Drafting Table Modernism".
+ * Dark (ink) is the default; .light on <html> switches to paper.
+ * Components must only use semantic utilities (bg-bg, text-fg, border-line…).
+ */
+:root {
+  --bg: #0a0a0b;
+  --surface: #141416;
+  --fg: #fafafa;
+  --fg-muted: #a1a1aa;
+  --line: #26262a;
+  --accent: #2563eb;
+
+  /* Per-locale primary family; [lang="fa"] remaps it below. */
+  --font-sans-active: var(--font-plex-sans), ui-sans-serif, system-ui,
+    sans-serif;
+}
+
+.light {
+  --bg: #fafaf8;
+  --surface: #ffffff;
+  --fg: #0a0a0b;
+  --fg-muted: #52525b;
+  --line: #e4e4e7;
+}
+
+html[lang="fa"] {
+  --font-sans-active: var(--font-vazirmatn), var(--font-plex-sans),
+    ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+
+  --font-sans: var(--font-sans-active);
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans-active);
+}
+
+/* Persian body text breathes better with a taller line. */
+html[lang="fa"] body {
+  line-height: 1.9;
+}

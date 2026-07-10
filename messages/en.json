@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Yaser — Full-Stack Developer & Urban Planner",
+    "description": "I design systems people live in — cities and software."
+  },
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "certificates": "Certificates",
+    "experience": "Experience",
+    "contact": "Contact",
+    "switchLocale": "فارسی",
+    "switchTheme": "Toggle theme"
+  },
+  "hero": {
+    "kicker": "PORTFOLIO — V2.0",
+    "title": "I design systems people live in.",
+    "subtitle": "Cities and software.",
+    "scaffold": "Phase 1 scaffold — design system arrives in Phase 2."
+  }
+}
