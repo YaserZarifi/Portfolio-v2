@@ -4,6 +4,7 @@ import type { ResolvedSkillGroup } from "@/lib/content/loaders";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Tag } from "@/components/ui/tag";
 import { Reveal } from "@/components/motion/reveal";
+import { ZoomSection } from "@/components/motion/zoom-section";
 
 export function About({
   profile,
@@ -16,7 +17,7 @@ export function About({
 
   return (
     <section id="about" className="scroll-mt-14 border-b border-line">
-      <div className="mx-auto max-w-6xl px-6 py-24">
+      <ZoomSection className="mx-auto max-w-6xl px-6 py-24">
         <Reveal>
           <SectionHeading
             index={t("index")}
@@ -48,7 +49,7 @@ export function About({
             </div>
           </div>
         </Reveal>
-      </div>
+      </ZoomSection>
     </section>
   );
 }

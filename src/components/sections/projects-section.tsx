@@ -5,13 +5,14 @@ import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ProjectCard } from "@/components/projects/project-card";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
+import { ZoomSection } from "@/components/motion/zoom-section";
 
 export function ProjectsSection({ projects }: { projects: Project[] }) {
   const t = useTranslations("projects");
 
   return (
     <section id="projects" className="scroll-mt-14 border-b border-line">
-      <div className="mx-auto max-w-6xl px-6 py-24">
+      <ZoomSection className="mx-auto max-w-6xl px-6 py-24">
         <Reveal>
           <SectionHeading
             index={t("index")}
@@ -32,7 +33,7 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
             {t("viewAll")}
           </Button>
         </Reveal>
-      </div>
+      </ZoomSection>
     </section>
   );
 }

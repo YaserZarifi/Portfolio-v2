@@ -7,6 +7,7 @@ import type { Profile } from "@/lib/content/schemas";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/motion/reveal";
+import { ZoomSection } from "@/components/motion/zoom-section";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -45,7 +46,7 @@ export function ContactSection({ profile }: { profile: Profile }) {
 
   return (
     <section id="contact" className="scroll-mt-14">
-      <div className="mx-auto max-w-6xl px-6 py-24">
+      <ZoomSection className="mx-auto max-w-6xl px-6 py-24">
         <Reveal>
           <SectionHeading
             index={t("index")}
@@ -160,7 +161,7 @@ export function ContactSection({ profile }: { profile: Profile }) {
             ) : null}
           </div>
         </Reveal>
-      </div>
+      </ZoomSection>
     </section>
   );
 }

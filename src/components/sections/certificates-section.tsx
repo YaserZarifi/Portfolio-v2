@@ -5,6 +5,7 @@ import type { Locale } from "@/lib/i18n/routing";
 import { formatDate } from "@/lib/format";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
+import { ZoomSection } from "@/components/motion/zoom-section";
 
 export function CertificatesSection({
   certificates,
@@ -16,7 +17,7 @@ export function CertificatesSection({
 
   return (
     <section id="certificates" className="scroll-mt-14 border-b border-line">
-      <div className="mx-auto max-w-6xl px-6 py-24">
+      <ZoomSection className="mx-auto max-w-6xl px-6 py-24">
         <Reveal>
           <SectionHeading
             index={t("index")}
@@ -55,7 +56,7 @@ export function CertificatesSection({
             </StaggerItem>
           ))}
         </Stagger>
-      </div>
+      </ZoomSection>
     </section>
   );
 }

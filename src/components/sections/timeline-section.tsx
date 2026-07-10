@@ -9,6 +9,7 @@ import { formatDate } from "@/lib/format";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/motion/reveal";
+import { ZoomSection } from "@/components/motion/zoom-section";
 
 function Period({
   locale,
@@ -42,7 +43,7 @@ export function TimelineSection({
 
   return (
     <section id="experience" className="scroll-mt-14 border-b border-line">
-      <div className="mx-auto max-w-6xl px-6 py-24">
+      <ZoomSection className="mx-auto max-w-6xl px-6 py-24">
         <Reveal>
           <SectionHeading
             index={t("index")}
@@ -111,7 +112,7 @@ export function TimelineSection({
             </div>
           </div>
         </Reveal>
-      </div>
+      </ZoomSection>
     </section>
   );
 }
