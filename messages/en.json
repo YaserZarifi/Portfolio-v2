@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Yaser — Full-Stack Developer & Urban Planner",
+    "title": "Yaser Zarifi — Full-Stack Developer & Urban Planner",
     "description": "I design systems people live in — cities and software."
   },
   "nav": {
@@ -10,15 +10,83 @@
     "experience": "Experience",
     "contact": "Contact",
     "switchLocale": "فارسی",
-    "switchTheme": "Toggle theme"
+    "switchTheme": "Toggle theme",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content"
   },
   "footer": {
     "note": "© 2026 Yaser Zarifi — drawn & built"
   },
   "hero": {
-    "kicker": "PORTFOLIO — V2.0",
+    "kicker": "FULL-STACK DEVELOPER × URBAN PLANNER",
     "title": "I design systems people live in.",
     "subtitle": "Cities and software.",
-    "scaffold": "Phase 1 scaffold — design system arrives in Phase 2."
+    "viewWork": "View projects",
+    "downloadCv": "Download CV"
+  },
+  "about": {
+    "index": "01",
+    "label": "ABOUT",
+    "title": "Two disciplines, one practice",
+    "skillsLabel": "TOOLSET"
+  },
+  "projects": {
+    "index": "02",
+    "label": "PROJECTS",
+    "title": "Selected work",
+    "description": "Software, urbanism, and the places they overlap.",
+    "viewAll": "All projects",
+    "viewCaseStudy": "Case study",
+    "filterAll": "All",
+    "filterCode": "Code",
+    "filterArchitecture": "Architecture",
+    "filterHybrid": "Hybrid",
+    "indexTitle": "Project index",
+    "indexDescription": "Everything — filter by discipline.",
+    "empty": "No projects in this category yet."
+  },
+  "project": {
+    "back": "All projects",
+    "live": "Visit live",
+    "repo": "Source",
+    "stack": "STACK",
+    "year": "YEAR",
+    "category": "CATEGORY",
+    "categoryNames": {
+      "code": "Code",
+      "architecture": "Architecture",
+      "hybrid": "Hybrid"
+    }
+  },
+  "certificates": {
+    "index": "03",
+    "label": "CERTIFICATES",
+    "title": "Certificates & awards",
+    "verify": "Verify",
+    "issuedBy": "Issued by"
+  },
+  "experience": {
+    "index": "04",
+    "label": "EXPERIENCE",
+    "title": "Experience & education",
+    "work": "WORK",
+    "education": "EDUCATION",
+    "present": "Present",
+    "downloadCv": "Download CV"
+  },
+  "contact": {
+    "index": "05",
+    "label": "CONTACT",
+    "title": "Build something together",
+    "description": "Open to grad-school research conversations, freelance work, and collaborations at the city–software intersection.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending…",
+    "success": "Message sent — I'll reply soon.",
+    "error": "Something went wrong. Email me directly instead.",
+    "validation": "Please fill in every field with a valid email."
   }
 }

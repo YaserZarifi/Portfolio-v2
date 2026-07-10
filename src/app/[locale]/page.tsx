@@ -1,25 +1,48 @@
-import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { use } from "react";
+import type { Locale } from "@/lib/i18n/routing";
+import {
+  getCertificates,
+  getEducation,
+  getExperience,
+  getProfile,
+  getProjects,
+  getSkills,
+} from "@/lib/content/loaders";
+import { Hero } from "@/components/sections/hero";
+import { About } from "@/components/sections/about";
+import { ProjectsSection } from "@/components/sections/projects-section";
+import { CertificatesSection } from "@/components/sections/certificates-section";
+import { TimelineSection } from "@/components/sections/timeline-section";
+import { ContactSection } from "@/components/sections/contact-section";
 
 export default function HomePage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = use(params);
   setRequestLocale(locale);
-  const t = useTranslations("hero");
+
+  const profile = getProfile(locale);
+  const projects = getProjects(locale, { featured: true });
+  const certificates = getCertificates(locale);
+  const experience = getExperience(locale);
+  const education = getEducation(locale);
+  const skills = getSkills(locale);
 
   return (
-    <main className="bg-drafting-grid">
-      <section className="mx-auto flex min-h-[calc(100dvh-3.5rem)] max-w-6xl flex-col justify-center px-6 py-24">
-        <p className="annotation mb-6 text-accent">{t("kicker")}</p>
-        <h1 className="max-w-3xl text-balance text-5xl font-semibold leading-tight tracking-tight sm:text-6xl">
-          {t("title")}
-        </h1>
-        <p className="mt-4 text-2xl text-fg-muted">{t("subtitle")}</p>
-      </section>
+    <main id="content">
+      <Hero profile={profile} />
+      <About profile={profile} skills={skills} />
+      <ProjectsSection projects={projects} />
+      <CertificatesSection certificates={certificates} />
+      <TimelineSection
+        experience={experience}
+        education={education}
+        profile={profile}
+      />
+      <ContactSection profile={profile} />
     </main>
   );
 }

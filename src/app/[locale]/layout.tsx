@@ -13,6 +13,8 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 export async function generateMetadata({
   params,
 }: {
@@ -21,8 +23,26 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
   return {
-    title: t("title"),
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: t("title"),
+      template: `%s — Yaser Zarifi`,
+    },
     description: t("description"),
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        en: "/en",
+        fa: "/fa",
+        "x-default": "/en",
+      },
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      locale: locale === "fa" ? "fa_IR" : "en_US",
+      type: "website",
+    },
   };
 }
 

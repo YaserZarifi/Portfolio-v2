@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/lib/i18n/navigation";
 import { LocaleSwitcher } from "@/components/ui/locale-switcher";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { MobileNav } from "@/components/layout/mobile-nav";
 
 const NAV_ITEMS = [
   { key: "about", hash: "#about" },
@@ -16,6 +17,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur-sm">
+      <a
+        href="#content"
+        className="absolute start-2 top-2 -translate-y-20 bg-accent px-4 py-2 text-white transition-transform focus:translate-y-0"
+      >
+        {t("skipToContent")}
+      </a>
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
         <Link href="/" className="flex items-baseline gap-3">
           <span className="font-semibold tracking-tight">YASER ZARIFI</span>
@@ -38,6 +45,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <LocaleSwitcher />
           <ThemeToggle />
+          <MobileNav />
         </div>
       </div>
     </header>
