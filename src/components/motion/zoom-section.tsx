@@ -34,8 +34,10 @@ export function ZoomSection({
     damping: 30,
     mass: 0.5,
   });
-  const scale = useTransform(smooth, [0, 0.3, 0.75, 1], [0.94, 1, 1, 1.03]);
-  const opacity = useTransform(smooth, [0, 0.25, 0.8, 1], [0.25, 1, 1, 0.6]);
+  // Deep CAD zoom: sheets arrive from clearly "far away" and the camera
+  // visibly pushes past them on exit.
+  const scale = useTransform(smooth, [0, 0.35, 0.7, 1], [0.86, 1, 1, 1.08]);
+  const opacity = useTransform(smooth, [0, 0.3, 0.75, 1], [0, 1, 1, 0.35]);
 
   return (
     <div ref={ref} className={className}>
