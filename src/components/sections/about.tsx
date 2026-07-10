@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Tag } from "@/components/ui/tag";
 import { Reveal } from "@/components/motion/reveal";
 import { ZoomSection } from "@/components/motion/zoom-section";
+import { AsciiPortrait } from "@/components/about/ascii-portrait";
 
 export function About({
   profile,
@@ -25,7 +26,11 @@ export function About({
             title={t("title")}
           />
         </Reveal>
-        <Reveal delay={0.08} className="grid gap-12 lg:grid-cols-2">
+        <Reveal delay={0.08} className="grid gap-12 lg:grid-cols-[minmax(0,340px)_1fr_1fr]">
+          <div>
+            <AsciiPortrait alt={profile.name} />
+            <p className="annotation mt-3">{t("figure")}</p>
+          </div>
           <div className="flex flex-col gap-4">
             {profile.bio.map((paragraph) => (
               <p key={paragraph.slice(0, 32)} className="text-fg-muted">
