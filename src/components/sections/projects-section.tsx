@@ -4,6 +4,7 @@ import { Link } from "@/lib/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ProjectCard } from "@/components/projects/project-card";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 
 export function ProjectsSection({ projects }: { projects: Project[] }) {
   const t = useTranslations("projects");
@@ -11,22 +12,26 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
   return (
     <section id="projects" className="scroll-mt-14 border-b border-line">
       <div className="mx-auto max-w-6xl px-6 py-24">
-        <SectionHeading
-          index={t("index")}
-          label={t("label")}
-          title={t("title")}
-          description={t("description")}
-        />
-        <div className="grid gap-6 md:grid-cols-2">
+        <Reveal>
+          <SectionHeading
+            index={t("index")}
+            label={t("label")}
+            title={t("title")}
+            description={t("description")}
+          />
+        </Reveal>
+        <Stagger className="grid gap-6 md:grid-cols-2">
           {projects.map((project, i) => (
-            <ProjectCard key={project.slug} project={project} index={i} />
+            <StaggerItem key={project.slug}>
+              <ProjectCard project={project} index={i} />
+            </StaggerItem>
           ))}
-        </div>
-        <div className="mt-10">
+        </Stagger>
+        <Reveal delay={0.1} className="mt-10">
           <Button as={Link} variant="outline" href="/projects">
             {t("viewAll")}
           </Button>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

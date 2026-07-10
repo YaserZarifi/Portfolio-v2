@@ -6,6 +6,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import type { Profile } from "@/lib/content/schemas";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { Reveal } from "@/components/motion/reveal";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -45,13 +46,15 @@ export function ContactSection({ profile }: { profile: Profile }) {
   return (
     <section id="contact" className="scroll-mt-14">
       <div className="mx-auto max-w-6xl px-6 py-24">
-        <SectionHeading
-          index={t("index")}
-          label={t("label")}
-          title={t("title")}
-          description={t("description")}
-        />
-        <div className="grid gap-12 lg:grid-cols-2">
+        <Reveal>
+          <SectionHeading
+            index={t("index")}
+            label={t("label")}
+            title={t("title")}
+            description={t("description")}
+          />
+        </Reveal>
+        <Reveal delay={0.08} className="grid gap-12 lg:grid-cols-2">
           <form
             onSubmit={onSubmit}
             onFocus={() => {
@@ -156,7 +159,7 @@ export function ContactSection({ profile }: { profile: Profile }) {
               </a>
             ) : null}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

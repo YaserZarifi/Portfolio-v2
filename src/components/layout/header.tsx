@@ -35,7 +35,7 @@ export function Header() {
             <Link
               key={item.key}
               href={`/${item.hash}`}
-              className="text-sm text-fg-muted transition-colors hover:text-fg"
+              className="relative text-sm text-fg-muted transition-colors after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 hover:text-fg hover:after:scale-x-100 motion-reduce:after:transition-none"
             >
               {t(item.key)}
             </Link>

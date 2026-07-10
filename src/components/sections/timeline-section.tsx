@@ -8,6 +8,7 @@ import type { Locale } from "@/lib/i18n/routing";
 import { formatDate } from "@/lib/format";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { Reveal } from "@/components/motion/reveal";
 
 function Period({
   locale,
@@ -42,12 +43,14 @@ export function TimelineSection({
   return (
     <section id="experience" className="scroll-mt-14 border-b border-line">
       <div className="mx-auto max-w-6xl px-6 py-24">
-        <SectionHeading
-          index={t("index")}
-          label={t("label")}
-          title={t("title")}
-        />
-        <div className="grid gap-12 lg:grid-cols-2">
+        <Reveal>
+          <SectionHeading
+            index={t("index")}
+            label={t("label")}
+            title={t("title")}
+          />
+        </Reveal>
+        <Reveal delay={0.08} className="grid gap-12 lg:grid-cols-2">
           <div>
             <p className="annotation mb-6">{t("work")}</p>
             <ol className="border-s border-line">
@@ -107,7 +110,7 @@ export function TimelineSection({
               </Button>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

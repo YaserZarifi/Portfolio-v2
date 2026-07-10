@@ -4,6 +4,7 @@ import type { ResolvedCertificate } from "@/lib/content/loaders";
 import type { Locale } from "@/lib/i18n/routing";
 import { formatDate } from "@/lib/format";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 
 export function CertificatesSection({
   certificates,
@@ -16,16 +17,18 @@ export function CertificatesSection({
   return (
     <section id="certificates" className="scroll-mt-14 border-b border-line">
       <div className="mx-auto max-w-6xl px-6 py-24">
-        <SectionHeading
-          index={t("index")}
-          label={t("label")}
-          title={t("title")}
-        />
-        <ul className="divide-y divide-line border-y border-line">
+        <Reveal>
+          <SectionHeading
+            index={t("index")}
+            label={t("label")}
+            title={t("title")}
+          />
+        </Reveal>
+        <Stagger className="border-y border-line">
           {certificates.map((cert) => (
-            <li
+            <StaggerItem
               key={`${cert.title}-${cert.date}`}
-              className="grid gap-1 py-5 sm:grid-cols-[1fr_auto] sm:items-center"
+              className="grid gap-1 border-b border-line py-5 last:border-0 sm:grid-cols-[1fr_auto] sm:items-center"
             >
               <div>
                 <p className="font-medium">{cert.title}</p>
@@ -49,9 +52,9 @@ export function CertificatesSection({
                   </a>
                 ) : null}
               </div>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
       </div>
     </section>
   );

@@ -24,7 +24,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`group relative border border-line bg-surface transition-colors hover:border-accent ${className}`}
+      className={`group relative border border-line bg-surface transition-all duration-300 hover:border-accent motion-safe:hover:-translate-y-1 ${className}`}
     >
       {marks ? <CornerMarks /> : null}
       {children}

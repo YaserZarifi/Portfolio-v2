@@ -3,6 +3,7 @@ import type { Profile } from "@/lib/content/schemas";
 import type { ResolvedSkillGroup } from "@/lib/content/loaders";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Tag } from "@/components/ui/tag";
+import { Reveal } from "@/components/motion/reveal";
 
 export function About({
   profile,
@@ -16,12 +17,14 @@ export function About({
   return (
     <section id="about" className="scroll-mt-14 border-b border-line">
       <div className="mx-auto max-w-6xl px-6 py-24">
-        <SectionHeading
-          index={t("index")}
-          label={t("label")}
-          title={t("title")}
-        />
-        <div className="grid gap-12 lg:grid-cols-2">
+        <Reveal>
+          <SectionHeading
+            index={t("index")}
+            label={t("label")}
+            title={t("title")}
+          />
+        </Reveal>
+        <Reveal delay={0.08} className="grid gap-12 lg:grid-cols-2">
           <div className="flex flex-col gap-4">
             {profile.bio.map((paragraph) => (
               <p key={paragraph.slice(0, 32)} className="text-fg-muted">
@@ -44,7 +47,7 @@ export function About({
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

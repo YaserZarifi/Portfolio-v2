@@ -4,6 +4,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { MotionProvider } from "@/components/motion/motion-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { fontVariables } from "@/lib/fonts";
 import { isRtl, routing } from "@/lib/i18n/routing";
@@ -68,9 +69,11 @@ export default async function LocaleLayout({
       <body className={`${fontVariables} antialiased`}>
         <ThemeProvider>
           <NextIntlClientProvider>
-            <Header />
-            {children}
-            <Footer />
+            <MotionProvider>
+              <Header />
+              {children}
+              <Footer />
+            </MotionProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
