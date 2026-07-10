@@ -48,7 +48,10 @@ export type ProjectFrontmatter = z.infer<typeof projectFrontmatterSchema>;
 export const certificateSchema = z.object({
   title: localizedString,
   issuer: z.string().min(1),
-  date: z.string().regex(/^\d{4}(-\d{2})?$/, "YYYY or YYYY-MM"),
+  date: z
+    .string()
+    .regex(/^\d{4}(-\d{2})?$/, "YYYY or YYYY-MM")
+    .optional(),
   imageUrl: z.string().url().optional(),
   credentialUrl: z.string().url().optional(),
 });

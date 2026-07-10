@@ -1,34 +1,38 @@
 [
   {
     "institution": {
-      "en": "Placeholder University",
-      "fa": "دانشگاه جای‌نگهدار"
+      "en": "Amirkabir University of Technology (Tehran Polytechnic)",
+      "fa": "دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)"
     },
     "degree": {
-      "en": "Master of Urban Planning",
-      "fa": "کارشناسی ارشد شهرسازی"
+      "en": "BSc, Computer Engineering",
+      "fa": "کارشناسی مهندسی کامپیوتر"
     },
     "field": {
-      "en": "Urban Planning",
-      "fa": "برنامه‌ریزی شهری"
+      "en": "Computer Engineering",
+      "fa": "مهندسی کامپیوتر"
     },
-    "start": "2021",
-    "end": "2023"
+    "start": "2022",
+    "end": null
   },
   {
     "institution": {
-      "en": "Placeholder University",
-      "fa": "دانشگاه جای‌نگهدار"
+      "en": "Kabul Polytechnic University",
+      "fa": "پلی‌تکنیک کابل"
     },
     "degree": {
-      "en": "Bachelor of Architecture",
-      "fa": "کارشناسی معماری"
+      "en": "BSc, Urban Planning & Design",
+      "fa": "کارشناسی شهرسازی و طراحی شهری"
     },
     "field": {
-      "en": "Architecture",
-      "fa": "معماری"
+      "en": "Urban Planning & Design",
+      "fa": "شهرسازی و طراحی شهری"
     },
-    "start": "2017",
-    "end": "2021"
+    "start": "2018",
+    "end": "2021",
+    "note": {
+      "en": "Interrupted in the final year by the fall of Kabul, 2021.",
+      "fa": "در سال پایانی با سقوط کابل (۱۴۰۰) ناتمام ماند."
+    }
   }
 ]

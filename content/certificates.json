@@ -1,28 +1,181 @@
 [
   {
     "title": {
-      "en": "Placeholder — Full-Stack Web Development",
-      "fa": "جای‌نگهدار — توسعه وب فول‌استک"
+      "en": "J.P. Morgan — Software Engineering Job Simulation",
+      "fa": "شبیه‌سازی شغلی مهندسی نرم‌افزار — J.P. Morgan"
     },
-    "issuer": "Placeholder Academy",
-    "date": "2025-06",
-    "credentialUrl": "https://example.com/credential/placeholder-1"
+    "issuer": "Forage",
+    "date": "2023-11",
+    "credentialUrl": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/J.P.%20Morgan/R5iK7HMxJGBgaSbvk_J.P.%20Morgan_8wkDPTnfzpP82CZAz_1699476489704_completion_certificate.pdf"
   },
   {
     "title": {
-      "en": "Placeholder — GIS & Urban Data Analysis",
-      "fa": "جای‌نگهدار — GIS و تحلیل داده‌های شهری"
+      "en": "Accenture North America — Data Analytics & Visualization Job Simulation",
+      "fa": "شبیه‌سازی شغلی تحلیل و مصورسازی داده — Accenture"
     },
-    "issuer": "Placeholder Institute",
-    "date": "2024-11",
-    "credentialUrl": "https://example.com/credential/placeholder-2"
+    "issuer": "Forage",
+    "date": "2023-07",
+    "credentialUrl": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20North%20America/hzmoNKtzvAzXsEqx8_Accenture%20North%20America_8wkDPTnfzpP82CZAz_1688567727592_completion_certificate.pdf"
   },
   {
     "title": {
-      "en": "Placeholder — Advanced React Patterns",
-      "fa": "جای‌نگهدار — الگوهای پیشرفته React"
+      "en": "Walmart USA — Advanced Software Engineering Job Simulation",
+      "fa": "شبیه‌سازی شغلی مهندسی نرم‌افزار پیشرفته — Walmart"
     },
-    "issuer": "Placeholder Platform",
-    "date": "2024-03"
+    "issuer": "Forage",
+    "date": "2023-07",
+    "credentialUrl": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Walmart%20USA/oX6f9BbCL9kJDJzfg_Walmart%20USA_8wkDPTnfzpP82CZAz_1688555462437_completion_certificate.pdf"
+  },
+  {
+    "title": {
+      "en": "Generative AI Fundamentals",
+      "fa": "مبانی هوش مصنوعی مولد"
+    },
+    "issuer": "Google Cloud",
+    "credentialUrl": "https://www.cloudskillsboost.google/public_profiles/9c452c01-ce7c-44ac-b06e-675fc067a6dd/badges/5956922"
+  },
+  {
+    "title": {
+      "en": "Introduction to Generative AI",
+      "fa": "مقدمه‌ای بر هوش مصنوعی مولد"
+    },
+    "issuer": "Google Cloud",
+    "credentialUrl": "https://www.cloudskillsboost.google/public_profiles/9c452c01-ce7c-44ac-b06e-675fc067a6dd/badges/5956760"
+  },
+  {
+    "title": {
+      "en": "Introduction to Large Language Models",
+      "fa": "مقدمه‌ای بر مدل‌های زبانی بزرگ"
+    },
+    "issuer": "Google Cloud",
+    "credentialUrl": "https://www.cloudskillsboost.google/public_profiles/9c452c01-ce7c-44ac-b06e-675fc067a6dd/badges/5956854"
+  },
+  {
+    "title": {
+      "en": "Introduction to Responsible AI",
+      "fa": "مقدمه‌ای بر هوش مصنوعی مسئولانه"
+    },
+    "issuer": "Google Cloud",
+    "credentialUrl": "https://www.cloudskillsboost.google/public_profiles/9c452c01-ce7c-44ac-b06e-675fc067a6dd/badges/5956871"
+  },
+  {
+    "title": {
+      "en": "Responsible AI: Applying AI Principles with Google Cloud",
+      "fa": "هوش مصنوعی مسئولانه: به‌کارگیری اصول AI با Google Cloud"
+    },
+    "issuer": "Google Cloud",
+    "credentialUrl": "https://www.cloudskillsboost.google/public_profiles/9c452c01-ce7c-44ac-b06e-675fc067a6dd/badges/5956976"
+  },
+  {
+    "title": {
+      "en": "SQL (Advanced) Certification",
+      "fa": "گواهی SQL (پیشرفته)"
+    },
+    "issuer": "HackerRank",
+    "credentialUrl": "https://www.hackerrank.com/certificates/7869f638f303"
+  },
+  {
+    "title": {
+      "en": "SQL (Intermediate) Certification",
+      "fa": "گواهی SQL (متوسط)"
+    },
+    "issuer": "HackerRank",
+    "credentialUrl": "https://www.hackerrank.com/certificates/8a1941c33872"
+  },
+  {
+    "title": {
+      "en": "SQL (Basic) Certification",
+      "fa": "گواهی SQL (مقدماتی)"
+    },
+    "issuer": "HackerRank",
+    "credentialUrl": "https://www.hackerrank.com/certificates/76295312a701"
+  },
+  {
+    "title": {
+      "en": "Python (Basic) Certification",
+      "fa": "گواهی پایتون (مقدماتی)"
+    },
+    "issuer": "HackerRank",
+    "credentialUrl": "https://www.hackerrank.com/certificates/587f158cd6b8"
+  },
+  {
+    "title": {
+      "en": "Java (Basic) Certification",
+      "fa": "گواهی جاوا (مقدماتی)"
+    },
+    "issuer": "HackerRank",
+    "credentialUrl": "https://www.hackerrank.com/certificates/f4dc2ddc000b"
+  },
+  {
+    "title": {
+      "en": "Programming for Everybody — Getting Started with Python",
+      "fa": "برنامه‌نویسی برای همه — شروع با پایتون"
+    },
+    "issuer": "edX — University of Michigan",
+    "credentialUrl": "https://courses.edx.org/certificates/75ff0c60c012417c916e8ce76f5efa41"
+  },
+  {
+    "title": {
+      "en": "Introduction to Front-End Development",
+      "fa": "مقدمه‌ای بر توسعه فرانت‌اند"
+    },
+    "issuer": "Meta — Coursera",
+    "credentialUrl": "https://www.coursera.org/account/accomplishments/certificate/LY6EP7A9WSCP"
+  },
+  {
+    "title": {
+      "en": "Introduction to Data Science",
+      "fa": "مقدمه‌ای بر علم داده"
+    },
+    "issuer": "Great Learning",
+    "credentialUrl": "https://verify.mygreatlearning.com/MCIUMPCI"
+  },
+  {
+    "title": {
+      "en": "Data Analytics Using Excel",
+      "fa": "تحلیل داده با Excel"
+    },
+    "issuer": "Great Learning",
+    "credentialUrl": "https://verify.mygreatlearning.com/verify/YXXDVFPN"
+  },
+  {
+    "title": {
+      "en": "Computer Hardware Basics",
+      "fa": "مبانی سخت‌افزار کامپیوتر"
+    },
+    "issuer": "Cisco",
+    "credentialUrl": "https://www.credly.com/badges/4b7509b1-96b7-4112-b198-75c3d5c0b81f/linked_in_profile"
+  },
+  {
+    "title": {
+      "en": "Operating Systems Basics",
+      "fa": "مبانی سیستم‌عامل"
+    },
+    "issuer": "Cisco",
+    "credentialUrl": "https://www.credly.com/badges/acd3181f-59fc-48dc-8d68-27096826a99e/linked_in_profile"
+  },
+  {
+    "title": {
+      "en": "Search Engine Optimization (SEO) with Squarespace",
+      "fa": "بهینه‌سازی موتور جستجو (SEO) با Squarespace"
+    },
+    "issuer": "Coursera Project Network",
+    "credentialUrl": "https://www.coursera.org/account/accomplishments/certificate/6RWNX6B24QD7"
+  },
+  {
+    "title": {
+      "en": "Build an E-commerce Dashboard with Figma",
+      "fa": "ساخت داشبورد فروشگاهی با Figma"
+    },
+    "issuer": "Coursera Project Network",
+    "credentialUrl": "https://www.coursera.org/account/accomplishments/certificate/WCHRGMXESU9A"
+  },
+  {
+    "title": {
+      "en": "Create a Project Charter with Google Docs",
+      "fa": "تهیه منشور پروژه با Google Docs"
+    },
+    "issuer": "Coursera Project Network",
+    "credentialUrl": "https://www.coursera.org/account/accomplishments/certificate/G2K2VJMJSF4K"
   }
 ]

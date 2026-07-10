@@ -38,9 +38,11 @@ export function CertificatesSection({
                 </p>
               </div>
               <div className="flex items-center gap-4 sm:justify-end">
-                <span className="annotation">
-                  {formatDate(locale, cert.date)}
-                </span>
+                {cert.date ? (
+                  <span className="annotation">
+                    {formatDate(locale, cert.date)}
+                  </span>
+                ) : null}
                 {cert.credentialUrl ? (
                   <a
                     href={cert.credentialUrl}

@@ -2,29 +2,33 @@
   {
     "label": { "en": "Software", "fa": "نرم‌افزار" },
     "items": [
-      "TypeScript",
-      "React / Next.js",
       "Python / Django",
-      "PostgreSQL",
-      "Tailwind CSS"
+      "JavaScript / TypeScript",
+      "React / Next.js",
+      "Java",
+      "SQL",
+      "WordPress"
     ]
   },
   {
     "label": { "en": "Cities", "fa": "شهر" },
     "items": [
-      "Urban Analysis",
-      "Masterplanning",
-      "GIS / QGIS",
       "AutoCAD",
-      "Rhino / Grasshopper"
+      "Revit",
+      "SketchUp",
+      "ArcGIS",
+      "Lumion / Twinmotion",
+      "3ds Max"
     ]
   },
   {
     "label": { "en": "Intersection", "fa": "تقاطع" },
     "items": [
+      "GIS & Spatial Analysis",
       "Computational Design",
-      "Spatial Data Visualization",
-      "Digital Tools for Planning"
+      "Data Visualization",
+      "Blender",
+      "Photoshop"
     ]
   }
 ]
