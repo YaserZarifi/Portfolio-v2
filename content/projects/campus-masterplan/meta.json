@@ -3,6 +3,15 @@
   "year": 2023,
   "stack": ["Masterplanning", "Rhino", "Grasshopper", "GIS"],
   "links": {},
+  "cover": {
+    "url": "/images/projects/campus-masterplan-cover.webp",
+    "width": 1376,
+    "height": 768,
+    "alt": {
+      "en": "Figure-ground masterplan drawing with hatched building footprints, contour lines and a blue pedestrian spine",
+      "fa": "نقشه طرح جامع با بلوک‌های هاشورخورده ساختمان‌ها، خطوط تراز و ستون فقرات پیاده آبی"
+    }
+  },
   "featured": true,
   "order": 2
 }

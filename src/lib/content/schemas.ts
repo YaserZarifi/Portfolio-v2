@@ -9,7 +9,8 @@ export type LocalizedString = z.infer<typeof localizedString>;
 
 /** Width/height are mandatory: they are the CLS defense for external URLs. */
 export const imageRef = z.object({
-  url: z.string().url(),
+  // Absolute https URL, or a root-relative path into /public (rot-proof).
+  url: z.union([z.string().url(), z.string().regex(/^\/.+/)]),
   width: z.number().int().positive(),
   height: z.number().int().positive(),
   alt: localizedString,

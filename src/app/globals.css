@@ -98,6 +98,19 @@ html[lang="fa"] h4 {
   color: #fafafa;
 }
 
+/*
+ * Ambient hero video: only when the viewer allows motion AND the theme is
+ * dark (the ink-black footage would read as a dark slab on paper mode).
+ */
+.hero-video {
+  display: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.light) .hero-video {
+    display: block;
+  }
+}
+
 /* Drafting-table grid texture (hero / section surfaces). */
 .bg-drafting-grid {
   background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),

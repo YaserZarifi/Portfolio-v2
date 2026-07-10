@@ -86,6 +86,16 @@ export function Hero({ profile }: { profile: Profile }) {
   return (
     <section ref={ref} className="relative overflow-hidden border-b border-line">
       <div className="bg-drafting-grid absolute inset-0" aria-hidden />
+      {/* Ambient map footage, generated from this site's own cover drawing. */}
+      <video
+        className="hero-video absolute inset-0 h-full w-full object-cover opacity-25"
+        src="/videos/hero-bg.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden
+      />
       <m.div
         style={animate ? { y: gridY } : undefined}
         className="absolute inset-0"

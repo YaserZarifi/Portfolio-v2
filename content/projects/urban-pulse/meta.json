@@ -5,6 +5,15 @@
   "links": {
     "repo": "https://github.com/YaserZarifi/portfolio-frontend"
   },
+  "cover": {
+    "url": "/images/projects/urban-pulse-cover.webp",
+    "width": 1376,
+    "height": 768,
+    "alt": {
+      "en": "Dark technical map of a city street grid with glowing blue data points and a route line",
+      "fa": "نقشه فنی تیره از شبکه معابر شهر با نقاط داده آبی درخشان و یک خط مسیر"
+    }
+  },
   "featured": true,
   "order": 1
 }
