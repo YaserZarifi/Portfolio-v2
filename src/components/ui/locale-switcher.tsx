@@ -13,7 +13,15 @@ export function LocaleSwitcher() {
     <Link
       href={pathname}
       locale={other}
-      className="inline-flex h-11 items-center border border-line px-4 font-mono text-sm text-fg-muted transition-colors hover:border-accent hover:text-fg"
+      lang={other}
+      // The label is in the OTHER script than the current page, so it can't
+      // rely on the page font: lead with Vazirmatn (Persian) and fall back to
+      // Plex Mono (Latin) so "فارسی" never hits the browser default face.
+      style={{
+        fontFamily:
+          "var(--font-vazirmatn), var(--font-plex-mono), ui-monospace, monospace",
+      }}
+      className="inline-flex h-11 items-center border border-line px-4 text-sm text-fg-muted transition-colors hover:border-accent hover:text-fg"
     >
       {t("switchLocale")}
     </Link>
