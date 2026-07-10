@@ -1,0 +1,34 @@
+[
+  {
+    "institution": {
+      "en": "Placeholder University",
+      "fa": "دانشگاه جای‌نگهدار"
+    },
+    "degree": {
+      "en": "Master of Urban Planning",
+      "fa": "کارشناسی ارشد شهرسازی"
+    },
+    "field": {
+      "en": "Urban Planning",
+      "fa": "برنامه‌ریزی شهری"
+    },
+    "start": "2021",
+    "end": "2023"
+  },
+  {
+    "institution": {
+      "en": "Placeholder University",
+      "fa": "دانشگاه جای‌نگهدار"
+    },
+    "degree": {
+      "en": "Bachelor of Architecture",
+      "fa": "کارشناسی معماری"
+    },
+    "field": {
+      "en": "Architecture",
+      "fa": "معماری"
+    },
+    "start": "2017",
+    "end": "2021"
+  }
+]

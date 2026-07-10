@@ -1,0 +1,34 @@
+[
+  {
+    "org": {
+      "en": "Placeholder Studio",
+      "fa": "استودیو جای‌نگهدار"
+    },
+    "role": {
+      "en": "Full-Stack Developer (Freelance)",
+      "fa": "توسعه‌دهنده فول‌استک (فریلنس)"
+    },
+    "description": {
+      "en": "Placeholder — delivered client web applications end-to-end: React/Next.js frontends, Django and Node backends, deployment and maintenance.",
+      "fa": "جای‌نگهدار — تحویل کامل وب‌اپلیکیشن‌های مشتریان: فرانت‌اند React/Next.js، بک‌اند Django و Node، استقرار و نگهداری."
+    },
+    "start": "2023-01",
+    "end": null
+  },
+  {
+    "org": {
+      "en": "Placeholder Consultants",
+      "fa": "مهندسان مشاور جای‌نگهدار"
+    },
+    "role": {
+      "en": "Urban Planner",
+      "fa": "کارشناس شهرسازی"
+    },
+    "description": {
+      "en": "Placeholder — urban analysis and masterplanning support: site studies, GIS mapping, regulatory documents.",
+      "fa": "جای‌نگهدار — تحلیل شهری و همکاری در تهیه طرح جامع: مطالعات سایت، نقشه‌سازی GIS، اسناد ضوابط."
+    },
+    "start": "2021-06",
+    "end": "2022-12"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "title": {
+      "en": "Placeholder — Full-Stack Web Development",
+      "fa": "جای‌نگهدار — توسعه وب فول‌استک"
+    },
+    "issuer": "Placeholder Academy",
+    "date": "2025-06",
+    "credentialUrl": "https://example.com/credential/placeholder-1"
+  },
+  {
+    "title": {
+      "en": "Placeholder — GIS & Urban Data Analysis",
+      "fa": "جای‌نگهدار — GIS و تحلیل داده‌های شهری"
+    },
+    "issuer": "Placeholder Institute",
+    "date": "2024-11",
+    "credentialUrl": "https://example.com/credential/placeholder-2"
+  },
+  {
+    "title": {
+      "en": "Placeholder — Advanced React Patterns",
+      "fa": "جای‌نگهدار — الگوهای پیشرفته React"
+    },
+    "issuer": "Placeholder Platform",
+    "date": "2024-03"
+  }
+]

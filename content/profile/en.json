@@ -1,0 +1,15 @@
+{
+  "name": "Yaser Zarifi",
+  "tagline": "I design systems people live in — cities and software.",
+  "bio": [
+    "I work at the intersection of two disciplines that are usually kept apart: I'm a full-stack developer and an architect / urban planner. To me they are the same practice at different scales — both are about designing systems that people inhabit.",
+    "On the software side I build end-to-end web products with React, Next.js and Python. On the built-environment side I work on urban analysis, masterplanning and computational design — increasingly with tools I write myself."
+  ],
+  "email": "mshakirshamsi@gmail.com",
+  "location": "Tehran, Iran",
+  "cvUrl": "/cv/yaser-zarifi-en.pdf",
+  "social": {
+    "github": "https://github.com/YaserZarifi",
+    "linkedin": "https://www.linkedin.com/in/yaser-zarifi"
+  }
+}

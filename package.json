@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx scripts/validate-content.ts",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "validate": "tsx scripts/validate-content.ts"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
