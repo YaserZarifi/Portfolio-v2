@@ -4,11 +4,14 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { StatusBar } from "@/components/layout/status-bar";
+import { CommandPalette } from "@/components/command/command-palette";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { ThemeProvider } from "@/components/theme-provider";
+import { getProfile } from "@/lib/content/loaders";
 import { fontVariables } from "@/lib/fonts";
-import { isRtl, routing } from "@/lib/i18n/routing";
+import { isRtl, routing, type Locale } from "@/lib/i18n/routing";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -61,6 +64,32 @@ export default async function LocaleLayout({
   }
   setRequestLocale(locale);
 
+  const profile = getProfile(locale as Locale);
+
+  const personLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Yaser Zarifi",
+    alternateName: "Mohammad Yaser Zarifi",
+    url: SITE_URL,
+    email: profile.email,
+    jobTitle: "Full-Stack Developer & Urban Planner",
+    address: { "@type": "PostalAddress", addressLocality: profile.location },
+    alumniOf: [
+      { "@type": "CollegeOrUniversity", name: "Amirkabir University of Technology" },
+      { "@type": "CollegeOrUniversity", name: "Kabul Polytechnic University" },
+    ],
+    knowsAbout: [
+      "Full-Stack Web Development",
+      "Next.js",
+      "Python",
+      "Urban Planning",
+      "GIS",
+      "Computational Design",
+    ],
+    sameAs: Object.values(profile.social),
+  };
+
   return (
     <html
       lang={locale}
@@ -68,13 +97,21 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className={`${fontVariables} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
+        />
         <ThemeProvider>
           <NextIntlClientProvider>
             <MotionProvider>
               <Header />
               <ScrollProgress />
-              {children}
-              <Footer />
+              <CommandPalette cvUrl={profile.cvUrl} social={profile.social} />
+              <div className="pb-7">
+                {children}
+                <Footer />
+              </div>
+              <StatusBar />
             </MotionProvider>
           </NextIntlClientProvider>
         </ThemeProvider>

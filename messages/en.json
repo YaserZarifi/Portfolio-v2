@@ -13,7 +13,18 @@
     "switchTheme": "Toggle theme",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "home": "Home"
+  },
+  "command": {
+    "open": "Open command palette",
+    "title": "Command palette",
+    "placeholder": "Type a command or search…",
+    "empty": "No matching command.",
+    "navigate": "NAVIGATE",
+    "actions": "ACTIONS",
+    "links": "LINKS",
+    "switchLanguage": "Switch language"
   },
   "notFound": {
     "code": "ERR-404 / OFF THE PLAN",
@@ -64,7 +75,8 @@
       "code": "Code",
       "architecture": "Architecture",
       "hybrid": "Hybrid"
-    }
+    },
+    "print": "Print / PDF"
   },
   "certificates": {
     "index": "03",

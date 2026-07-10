@@ -13,7 +13,18 @@
     "switchTheme": "تغییر پوسته",
     "openMenu": "باز کردن منو",
     "closeMenu": "بستن منو",
-    "skipToContent": "پرش به محتوا"
+    "skipToContent": "پرش به محتوا",
+    "home": "خانه"
+  },
+  "command": {
+    "open": "باز کردن پنل فرمان",
+    "title": "پنل فرمان",
+    "placeholder": "یک فرمان بنویسید یا جستجو کنید…",
+    "empty": "فرمانی یافت نشد.",
+    "navigate": "پیمایش",
+    "actions": "کنش‌ها",
+    "links": "پیوندها",
+    "switchLanguage": "تغییر زبان"
   },
   "notFound": {
     "code": "خطا ۴۰۴ / خارج از نقشه",
@@ -64,7 +75,8 @@
       "code": "کد",
       "architecture": "معماری",
       "hybrid": "ترکیبی"
-    }
+    },
+    "print": "چاپ / PDF"
   },
   "certificates": {
     "index": "03",

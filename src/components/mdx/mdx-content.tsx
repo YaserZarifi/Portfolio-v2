@@ -1,6 +1,7 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { ScanCompare } from "@/components/media/scan-compare";
 
 /* Case-study building blocks — available inside every .mdx body. */
 
@@ -66,6 +67,7 @@ const components = {
   Grid,
   Callout,
   Video,
+  Compare: ScanCompare,
   h2: (props: React.ComponentProps<"h2">) => (
     <h2
       className="mt-14 mb-4 text-2xl font-semibold tracking-tight"

@@ -3,6 +3,7 @@ import { Link } from "@/lib/i18n/navigation";
 import { LocaleSwitcher } from "@/components/ui/locale-switcher";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { MobileNav } from "@/components/layout/mobile-nav";
+import { CommandButton } from "@/components/command/command-button";
 
 const NAV_ITEMS = [
   { key: "about", hash: "#about" },
@@ -43,6 +44,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <CommandButton />
           <LocaleSwitcher />
           <ThemeToggle />
           <MobileNav />

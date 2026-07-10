@@ -16,6 +16,7 @@ import { formatNumber } from "@/lib/format";
 import { Tag } from "@/components/ui/tag";
 import { MdxContent } from "@/components/mdx/mdx-content";
 import { Parallax } from "@/components/motion/parallax";
+import { PrintButton } from "@/components/project/print-button";
 
 export function generateStaticParams() {
   return getProjectSlugs().map((slug) => ({ slug }));
@@ -61,13 +62,22 @@ export default function ProjectPage({
 
   return (
     <main id="content" className="mx-auto max-w-3xl px-6 py-16">
-      <Link
-        href="/projects"
-        className="annotation inline-flex items-center gap-2 transition-colors hover:text-fg"
-      >
-        <MoveLeft size={14} strokeWidth={1.5} aria-hidden className="rtl:-scale-x-100" />
-        {t("back")}
-      </Link>
+      {/* Print-only drawing-sheet title block. */}
+      <div className="mb-6 hidden items-center justify-between border-b border-black pb-2 font-mono text-xs print:flex">
+        <span>YASER ZARIFI — {t("category").toUpperCase()}: {t(`categoryNames.${project.category}`)}</span>
+        <span>{formatNumber(locale, project.year)}</span>
+      </div>
+
+      <div className="flex items-center justify-between print:hidden">
+        <Link
+          href="/projects"
+          className="annotation inline-flex items-center gap-2 transition-colors hover:text-fg"
+        >
+          <MoveLeft size={14} strokeWidth={1.5} aria-hidden className="rtl:-scale-x-100" />
+          {t("back")}
+        </Link>
+        <PrintButton />
+      </div>
 
       <header className="mt-8 border-b border-line pb-8">
         <div className="mb-4 flex flex-wrap gap-x-8 gap-y-2">

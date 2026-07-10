@@ -125,6 +125,13 @@ html[lang="fa"] h4 {
   background-size: 3rem 3rem;
 }
 
+/* Snap-grid overlay toggled from the CAD status bar — stronger, deliberate. */
+.grid-overlay {
+  background-image: linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+}
+
 /* Mono annotation — drawing labels, section indices, coordinates. */
 .annotation {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -137,4 +144,74 @@ html[lang="fa"] h4 {
 /* Persian text inside annotations shouldn't be force-uppercased spacing-wise. */
 html[lang="fa"] .annotation {
   letter-spacing: 0;
+}
+
+/*
+ * Print — each case study exports as a clean A4 "drawing sheet": chrome and
+ * motion stripped, forced paper palette, links shown as footnotes.
+ */
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm;
+  }
+
+  :root,
+  .light {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --fg: #000000;
+    --fg-muted: #333333;
+    --line: #000000;
+    --accent: #000000;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Hide all chrome and ambient motion. */
+  header,
+  footer,
+  video,
+  .grid-overlay,
+  [class*="fixed"],
+  .print\:hidden {
+    display: none !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    filter: grayscale(1);
+    page-break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  /* Surface link targets in print. */
+  article a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 10px;
+    color: #555;
+    word-break: break-all;
+  }
 }
