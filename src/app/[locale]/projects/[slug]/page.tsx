@@ -15,6 +15,7 @@ import {
 import { formatNumber } from "@/lib/format";
 import { Tag } from "@/components/ui/tag";
 import { MdxContent } from "@/components/mdx/mdx-content";
+import { Parallax } from "@/components/motion/parallax";
 
 export function generateStaticParams() {
   return getProjectSlugs().map((slug) => ({ slug }));
@@ -118,7 +119,7 @@ export default function ProjectPage({
       </header>
 
       {project.cover ? (
-        <div className="mt-10 border border-line">
+        <Parallax className="mt-10 border border-line">
           <Image
             src={project.cover.url}
             width={project.cover.width}
@@ -127,7 +128,7 @@ export default function ProjectPage({
             priority
             className="w-full"
           />
-        </div>
+        </Parallax>
       ) : null}
 
       <article className="mt-6">

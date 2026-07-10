@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { MotionProvider } from "@/components/motion/motion-provider";
+import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { ThemeProvider } from "@/components/theme-provider";
 import { fontVariables } from "@/lib/fonts";
 import { isRtl, routing } from "@/lib/i18n/routing";
@@ -71,6 +72,7 @@ export default async function LocaleLayout({
           <NextIntlClientProvider>
             <MotionProvider>
               <Header />
+              <ScrollProgress />
               {children}
               <Footer />
             </MotionProvider>

@@ -87,6 +87,13 @@ html[lang="fa"] h4 {
   letter-spacing: 0 !important;
 }
 
+/* Cinematic anchor scrolling — native, no library, reduced-motion safe. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 /* Keyboard focus — accent hairline, offset like a selection marquee. */
 :focus-visible {
   outline: 2px solid var(--accent);

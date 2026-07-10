@@ -6,6 +6,7 @@ import {
   m,
   useReducedMotion,
   useScroll,
+  useSpring,
   useTransform,
 } from "motion/react";
 import type { Profile } from "@/lib/content/schemas";
@@ -13,10 +14,14 @@ import { Button } from "@/components/ui/button";
 import { useDirectionalX } from "@/components/motion/use-directional-x";
 
 /**
- * Signature moment — "The Site Plan Assembles".
- * Grid lines draw in like a technical drawing, the name settles from
- * blueprint outline to solid ink, annotations slide in from the reading
- * side, and the whole sheet deconstructs subtly as you scroll past it.
+ * Cinematic opening — "The Site Plan Assembles".
+ * Letterbox bars retract like a film gate, the camera settles onto the
+ * sheet, grid lines draw in, the name resolves from blueprint outline to
+ * ink. On scroll, spring-smoothed deconstruction: the map footage and grid
+ * drift apart in parallax while the title recedes.
+ *
+ * Contrast rule: the video NEVER sits naked behind text — a bottom-up scrim
+ * from --bg guarantees the text zone reads at full contrast.
  */
 
 const GRID_LINES = [
@@ -25,6 +30,8 @@ const GRID_LINES = [
   { x1: 22, y1: 0, x2: 22, y2: 100 },
   { x1: 78, y1: 0, x2: 78, y2: 100 },
 ];
+
+const GATE_EASE = [0.76, 0, 0.24, 1] as const;
 
 function DrawnGrid({ animate }: { animate: boolean }) {
   return (
@@ -44,12 +51,11 @@ function DrawnGrid({ animate }: { animate: boolean }) {
           initial={animate ? { pathLength: 0, opacity: 0 } : false}
           animate={{ pathLength: 1, opacity: 1 }}
           transition={{
-            pathLength: { duration: 1.1, ease: "easeInOut", delay: i * 0.12 },
-            opacity: { duration: 0.2, delay: i * 0.12 },
+            pathLength: { duration: 1.1, ease: "easeInOut", delay: 0.9 + i * 0.12 },
+            opacity: { duration: 0.2, delay: 0.9 + i * 0.12 },
           }}
         />
       ))}
-      {/* Plot marker at the grid intersection — the site under study. */}
       <m.circle
         cx={22}
         cy={30}
@@ -60,7 +66,7 @@ function DrawnGrid({ animate }: { animate: boolean }) {
         vectorEffect="non-scaling-stroke"
         initial={animate ? { scale: 0, opacity: 0 } : false}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.9, type: "spring", stiffness: 300, damping: 20 }}
+        transition={{ delay: 1.8, type: "spring", stiffness: 300, damping: 20 }}
         style={{ transformOrigin: "22% 30%" }}
       />
     </svg>
@@ -77,110 +83,175 @@ export function Hero({ profile }: { profile: Profile }) {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const titleY = useTransform(scrollYProgress, [0, 1], [0, 90]);
-  const gridY = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const sheetOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
+  // Spring-smoothed progress = the "camera on a dolly" feel while scrolling.
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 28,
+    mass: 0.5,
+  });
+  const titleY = useTransform(progress, [0, 1], [0, 150]);
+  const titleScale = useTransform(progress, [0, 1], [1, 0.93]);
+  const gridScale = useTransform(progress, [0, 1], [1, 1.16]);
+  const videoScale = useTransform(progress, [0, 1], [1.05, 1.22]);
+  const videoY = useTransform(progress, [0, 1], [0, 70]);
+  const sheetOpacity = useTransform(progress, [0, 0.75], [1, 0]);
 
   const animate = !reduce;
 
   return (
-    <section ref={ref} className="relative overflow-hidden border-b border-line">
+    <section
+      ref={ref}
+      className="relative overflow-hidden border-b border-line"
+    >
       <div className="bg-drafting-grid absolute inset-0" aria-hidden />
-      {/* Ambient map footage, generated from this site's own cover drawing. */}
-      <video
-        className="hero-video absolute inset-0 h-full w-full object-cover opacity-25"
-        src="/videos/hero-bg.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden
-      />
+
+      {/* Map footage — parallax layer, scaled so edges never show. */}
       <m.div
-        style={animate ? { y: gridY } : undefined}
+        style={animate ? { y: videoY, scale: videoScale } : undefined}
+        className="absolute inset-0"
+        aria-hidden
+      >
+        <video
+          className="hero-video h-full w-full object-cover opacity-40"
+          src="/videos/hero-bg.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+      </m.div>
+
+      {/* Contrast scrim: bg-colored, strongest where the text lives. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-t from-bg via-bg/60 to-bg/25"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-bg/70 via-transparent to-transparent"
+      />
+
+      <m.div
+        style={animate ? { scale: gridScale } : undefined}
         className="absolute inset-0"
       >
         <DrawnGrid animate={animate} />
       </m.div>
 
+      {/* Film-gate letterbox bars — open once, then get out of the way. */}
+      {animate ? (
+        <>
+          <m.div
+            aria-hidden
+            initial={{ scaleY: 1 }}
+            animate={{ scaleY: 0 }}
+            transition={{ delay: 0.25, duration: 1.0, ease: GATE_EASE }}
+            className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[16vh] origin-top bg-black"
+          />
+          <m.div
+            aria-hidden
+            initial={{ scaleY: 1 }}
+            animate={{ scaleY: 0 }}
+            transition={{ delay: 0.25, duration: 1.0, ease: GATE_EASE }}
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[16vh] origin-bottom bg-black"
+          />
+        </>
+      ) : null}
+
       <m.div
         style={animate ? { opacity: sheetOpacity } : undefined}
         className="relative mx-auto flex min-h-[calc(100dvh-3.5rem)] max-w-6xl flex-col justify-center px-6 py-24"
       >
-        <m.p
-          initial={animate ? { opacity: 0, x: dx(-24) } : false}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.5, type: "spring", stiffness: 260, damping: 26 }}
-          className="annotation mb-6 text-accent"
+        {/* Camera settle: the whole composition eases from a slight zoom. */}
+        <m.div
+          initial={animate ? { scale: 1.045, opacity: 0 } : false}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.35, duration: 1.1, ease: GATE_EASE }}
         >
-          {t("kicker")}
-        </m.p>
+          <m.p
+            initial={animate ? { opacity: 0, x: dx(-28) } : false}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              delay: 1.0,
+              type: "spring",
+              stiffness: 260,
+              damping: 26,
+            }}
+            className="annotation mb-6 text-accent"
+          >
+            {t("kicker")}
+          </m.p>
 
-        <m.div style={animate ? { y: titleY } : undefined}>
-          <h1 className="relative max-w-3xl text-balance text-5xl font-semibold leading-tight tracking-tight sm:text-6xl">
-            {/* Blueprint outline that the solid title settles over. */}
-            <m.span
-              aria-hidden
-              initial={animate ? { opacity: 0.9 } : false}
-              animate={{ opacity: 0 }}
-              transition={{ delay: 1.1, duration: 0.9, ease: "easeOut" }}
-              className="absolute inset-0 select-none text-transparent"
-              style={{ WebkitTextStroke: "1px var(--fg-muted)" }}
-            >
-              {t("title")}
-            </m.span>
-            <m.span
-              initial={animate ? { opacity: 0, y: 14 } : false}
+          <m.div style={animate ? { y: titleY, scale: titleScale } : undefined}>
+            <h1 className="relative max-w-3xl text-balance text-5xl font-semibold leading-tight tracking-tight sm:text-7xl">
+              <m.span
+                aria-hidden
+                initial={animate ? { opacity: 0.9 } : false}
+                animate={{ opacity: 0 }}
+                transition={{ delay: 1.6, duration: 0.9, ease: "easeOut" }}
+                className="absolute inset-0 select-none text-transparent"
+                style={{ WebkitTextStroke: "1px var(--fg-muted)" }}
+              >
+                {t("title")}
+              </m.span>
+              <m.span
+                initial={animate ? { opacity: 0, y: 18 } : false}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 1.5,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 26,
+                }}
+                className="inline-block"
+              >
+                {t("title")}
+              </m.span>
+            </h1>
+
+            <m.p
+              initial={animate ? { opacity: 0, y: 16 } : false}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                delay: 1.0,
+                delay: 2.0,
                 type: "spring",
-                stiffness: 200,
+                stiffness: 240,
                 damping: 26,
               }}
-              className="inline-block"
+              className="mt-4 text-2xl text-fg-muted"
             >
-              {t("title")}
-            </m.span>
-          </h1>
+              {t("subtitle")}
+            </m.p>
+          </m.div>
 
-          <m.p
+          <m.div
             initial={animate ? { opacity: 0, y: 16 } : false}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              delay: 1.5,
+              delay: 2.2,
               type: "spring",
               stiffness: 240,
               damping: 26,
             }}
-            className="mt-4 text-2xl text-fg-muted"
+            className="mt-10 flex flex-wrap gap-4"
           >
-            {t("subtitle")}
+            <Button as="a" href="#projects">
+              {t("viewWork")}
+            </Button>
+            <Button as="a" variant="outline" href={profile.cvUrl} download>
+              {t("downloadCv")}
+            </Button>
+          </m.div>
+
+          <m.p
+            initial={animate ? { opacity: 0 } : false}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.6, duration: 0.6 }}
+            className="annotation mt-16"
+          >
+            {profile.location} — N 35.6892° / E 51.3890°
           </m.p>
         </m.div>
-
-        <m.div
-          initial={animate ? { opacity: 0, y: 16 } : false}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.7, type: "spring", stiffness: 240, damping: 26 }}
-          className="mt-10 flex flex-wrap gap-4"
-        >
-          <Button as="a" href="#projects">
-            {t("viewWork")}
-          </Button>
-          <Button as="a" variant="outline" href={profile.cvUrl} download>
-            {t("downloadCv")}
-          </Button>
-        </m.div>
-
-        <m.p
-          initial={animate ? { opacity: 0 } : false}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.1, duration: 0.6 }}
-          className="annotation mt-16"
-        >
-          {profile.location} — N 35.6892° / E 51.3890°
-        </m.p>
       </m.div>
     </section>
   );
