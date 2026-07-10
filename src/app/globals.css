@@ -68,6 +68,25 @@ html[lang="fa"] body {
   line-height: 1.9;
 }
 
+/*
+ * Persian display typography: Vazirmatn (variable 100–900) carries headings
+ * too, but Farsi headlines need MORE weight than Latin to feel equally
+ * authoritative, and must never inherit Latin tracking-tight — negative
+ * letter-spacing breaks Arabic-script letter joins.
+ */
+html[lang="fa"] h1,
+html[lang="fa"] h2 {
+  font-weight: 800;
+  letter-spacing: 0 !important;
+  line-height: 1.4;
+}
+
+html[lang="fa"] h3,
+html[lang="fa"] h4 {
+  font-weight: 700;
+  letter-spacing: 0 !important;
+}
+
 /* Keyboard focus — accent hairline, offset like a selection marquee. */
 :focus-visible {
   outline: 2px solid var(--accent);
