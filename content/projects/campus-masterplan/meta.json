@@ -1,7 +1,12 @@
 {
   "category": "architecture",
   "year": 2023,
-  "stack": ["Masterplanning", "Rhino", "Grasshopper", "GIS"],
+  "stack": [
+    "Masterplanning",
+    "Rhino",
+    "Grasshopper",
+    "GIS"
+  ],
   "links": {},
   "cover": {
     "url": "/images/projects/campus-masterplan-cover.webp",

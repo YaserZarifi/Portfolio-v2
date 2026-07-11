@@ -1,7 +1,12 @@
 {
   "category": "hybrid",
   "year": 2025,
-  "stack": ["Next.js", "TypeScript", "PostGIS", "Mapbox GL"],
+  "stack": [
+    "Next.js",
+    "TypeScript",
+    "PostGIS",
+    "Mapbox GL"
+  ],
   "links": {
     "repo": "https://github.com/YaserZarifi/portfolio-frontend"
   },

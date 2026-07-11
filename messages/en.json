@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Yaser Zarifi — Full-Stack Developer & Urban Planner",
-    "description": "I design systems people live in — cities and software."
+    "title": "Yaser Zarifi | Full-Stack Developer & Urban Planner",
+    "description": "Full-stack developer and urban planner. I build web products with Next.js, React, Python and Django, and design software the way planners design cities."
   },
   "nav": {
     "about": "About",
@@ -34,11 +34,11 @@
     "home": "Back to home"
   },
   "footer": {
-    "note": "© 2026 Yaser Zarifi — drawn & built"
+    "note": "© 2026 Yaser Zarifi | drawn & built"
   },
   "hero": {
     "kicker": "FULL-STACK DEVELOPER × URBAN PLANNER",
-    "title": "I design systems people live in.",
+    "title": "Full-stack developer with an urban planner's eye.",
     "subtitle": "Cities and software.",
     "viewWork": "View projects",
     "downloadCv": "Download CV"
@@ -48,7 +48,7 @@
     "label": "ABOUT",
     "title": "Two disciplines, one practice",
     "skillsLabel": "TOOLSET",
-    "figure": "FIG. 01 — SCAN IN PROGRESS"
+    "figure": "SCAN IN PROGRESS"
   },
   "projects": {
     "index": "02",
@@ -64,7 +64,7 @@
     "filterArchitecture": "Architecture",
     "filterHybrid": "Hybrid",
     "indexTitle": "Project index",
-    "indexDescription": "Everything — filter by discipline.",
+    "indexDescription": "Everything | filter by discipline.",
     "empty": "No projects in this category yet."
   },
   "project": {
@@ -117,7 +117,7 @@
     "message": "Message",
     "send": "Send message",
     "sending": "Sending…",
-    "success": "Message sent — I'll reply soon.",
+    "success": "Message sent | I'll reply soon.",
     "error": "Something went wrong. Email me directly instead.",
     "validation": "Please fill in every field with a valid email.",
     "ticketTitle": "WORK ORDER",

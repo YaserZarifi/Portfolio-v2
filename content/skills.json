@@ -1,6 +1,9 @@
 [
   {
-    "label": { "en": "Software", "fa": "نرم‌افزار" },
+    "label": {
+      "en": "Software",
+      "fa": "نرم‌افزار"
+    },
     "items": [
       "Python / Django",
       "JavaScript / TypeScript",
@@ -11,7 +14,10 @@
     ]
   },
   {
-    "label": { "en": "Cities", "fa": "شهر" },
+    "label": {
+      "en": "Cities",
+      "fa": "شهر"
+    },
     "items": [
       "AutoCAD",
       "Revit",
@@ -22,7 +28,10 @@
     ]
   },
   {
-    "label": { "en": "Intersection", "fa": "تقاطع" },
+    "label": {
+      "en": "Intersection",
+      "fa": "تقاطع"
+    },
     "items": [
       "GIS & Spatial Analysis",
       "Computational Design",
