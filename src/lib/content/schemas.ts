@@ -54,6 +54,8 @@ export const certificateSchema = z.object({
     .optional(),
   imageUrl: z.string().url().optional(),
   credentialUrl: z.string().url().optional(),
+  /** Curate what surfaces on the home showcase; falls back to newest-first. */
+  featured: z.boolean().optional(),
 });
 export type Certificate = z.infer<typeof certificateSchema>;
 

@@ -6,6 +6,10 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { StatusBar } from "@/components/layout/status-bar";
 import { CommandPalette } from "@/components/command/command-palette";
+import { CustomCursor } from "@/components/cursor/custom-cursor";
+import { PenTrail } from "@/components/cursor/pen-trail";
+import { WireframeController } from "@/components/dev/wireframe-controller";
+import { Preloader } from "@/components/intro/preloader";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -96,7 +100,10 @@ export default async function LocaleLayout({
       dir={isRtl(locale) ? "rtl" : "ltr"}
       suppressHydrationWarning
     >
-      <body className={`${fontVariables} antialiased`}>
+      <body
+        className={`${fontVariables} antialiased`}
+        suppressHydrationWarning
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
@@ -104,6 +111,10 @@ export default async function LocaleLayout({
         <ThemeProvider>
           <NextIntlClientProvider>
             <MotionProvider>
+              <Preloader />
+              <CustomCursor />
+              <PenTrail />
+              <WireframeController />
               <Header />
               <ScrollProgress />
               <CommandPalette cvUrl={profile.cvUrl} social={profile.social} />

@@ -103,7 +103,7 @@ export function ScanCompare({
           style={{ left: handleLeft }}
           className="absolute inset-y-0 w-px -translate-x-1/2 cursor-ew-resize bg-accent shadow-[0_0_12px_var(--accent)]"
         >
-          <span className="absolute top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center border border-accent bg-bg font-mono text-xs text-accent">
+          <span className="absolute top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center border border-accent bg-bg font-mono text-xs text-accent-fg">
             ↔
           </span>
         </m.div>

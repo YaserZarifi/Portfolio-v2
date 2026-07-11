@@ -91,7 +91,7 @@ const components = {
   ),
   a: (props: React.ComponentProps<"a">) => (
     <a
-      className="text-accent underline underline-offset-4 hover:no-underline"
+      className="text-accent-fg underline underline-offset-4 hover:no-underline"
       {...props}
     />
   ),

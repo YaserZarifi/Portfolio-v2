@@ -30,6 +30,7 @@ export default function ProjectsPage({
   return (
     <main id="content" className="mx-auto max-w-6xl px-6 py-16">
       <SectionHeading
+        level="h1"
         index={t("index")}
         label={t("label")}
         title={t("indexTitle")}

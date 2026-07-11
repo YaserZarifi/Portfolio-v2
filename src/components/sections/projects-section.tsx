@@ -3,7 +3,7 @@ import type { Project } from "@/lib/content/loaders";
 import { Link } from "@/lib/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { ProjectCard } from "@/components/projects/project-card";
+import { FeatureProjectCard } from "@/components/projects/feature-project-card";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { ZoomSection } from "@/components/motion/zoom-section";
 
@@ -24,7 +24,7 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
         <Stagger className="grid gap-6 md:grid-cols-2">
           {projects.map((project, i) => (
             <StaggerItem key={project.slug}>
-              <ProjectCard project={project} index={i} />
+              <FeatureProjectCard project={project} index={i} />
             </StaggerItem>
           ))}
         </Stagger>

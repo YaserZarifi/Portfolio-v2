@@ -11,10 +11,12 @@ import {
 } from "@/lib/content/loaders";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
+import { ExplodedSheets } from "@/components/sections/exploded-sheets";
 import { ProjectsSection } from "@/components/sections/projects-section";
 import { CertificatesSection } from "@/components/sections/certificates-section";
 import { TimelineSection } from "@/components/sections/timeline-section";
 import { ContactSection } from "@/components/sections/contact-section";
+import { SectionScrubber } from "@/components/motion/section-scrubber";
 
 export default function HomePage({
   params,
@@ -33,8 +35,10 @@ export default function HomePage({
 
   return (
     <main id="content">
+      <SectionScrubber />
       <Hero profile={profile} />
       <About profile={profile} skills={skills} />
+      <ExplodedSheets />
       <ProjectsSection projects={projects} />
       <CertificatesSection certificates={certificates} />
       <TimelineSection

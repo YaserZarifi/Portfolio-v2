@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { SoundToggle } from "@/components/ui/sound-toggle";
 
 const SECTION_IDS = [
   "about",
@@ -19,10 +20,10 @@ const SECTION_IDS = [
 export function StatusBar() {
   const t = useTranslations();
   const locale = useLocale();
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
   const [section, setSection] = useState<string>("hero");
   const [grid, setGrid] = useState(false);
   const raf = useRef<number | null>(null);
+  const coordRef = useRef<HTMLSpanElement>(null);
 
   // Restore grid preference.
   useEffect(() => {
@@ -32,13 +33,19 @@ export function StatusBar() {
     localStorage.setItem("cad-grid", grid ? "1" : "0");
   }, [grid]);
 
-  // Live cursor coordinates (rAF-throttled).
+  // Live cursor coordinates (rAF-throttled, written straight to the DOM so
+  // moving the pointer never re-renders the bar).
   useEffect(() => {
+    const pad = (n: number) => String(Math.max(0, n)).padStart(4, "0");
     const onMove = (e: PointerEvent) => {
       if (raf.current) return;
+      const cx = e.clientX;
+      const cy = e.clientY;
       raf.current = requestAnimationFrame(() => {
         raf.current = null;
-        setCoords({ x: Math.round(e.clientX), y: Math.round(e.clientY) });
+        if (coordRef.current) {
+          coordRef.current.textContent = `X ${pad(Math.round(cx))}  Y ${pad(Math.round(cy))}`;
+        }
       });
     };
     window.addEventListener("pointermove", onMove);
@@ -74,8 +81,6 @@ export function StatusBar() {
         ? t(`nav.${section}`)
         : section;
 
-  const pad = (n: number) => String(n).padStart(4, "0");
-
   return (
     <>
       {grid ? (
@@ -91,8 +96,8 @@ export function StatusBar() {
             <span className="inline-block h-1.5 w-1.5 bg-ok" />
             READY
           </span>
-          <span className="tabular-nums">
-            X {pad(coords.x)} &nbsp; Y {pad(coords.y)}
+          <span ref={coordRef} className="tabular-nums">
+            X 0000&nbsp;&nbsp;Y 0000
           </span>
           <span className="ms-auto hidden sm:inline">
             SEC: <span className="text-fg">{sectionLabel}</span>
@@ -105,6 +110,7 @@ export function StatusBar() {
           >
             GRID {grid ? "▣" : "▢"}
           </button>
+          <SoundToggle />
           <span className="uppercase text-fg">{locale}</span>
         </div>
       </div>

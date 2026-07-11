@@ -11,6 +11,9 @@ import {
 } from "motion/react";
 import type { Profile } from "@/lib/content/schemas";
 import { Button } from "@/components/ui/button";
+import { BlueprintSurface } from "@/components/motion/blueprint-surface";
+import { KineticText } from "@/components/motion/kinetic-text";
+import { Magnetic } from "@/components/motion/magnetic";
 import { useDirectionalX } from "@/components/motion/use-directional-x";
 
 /**
@@ -92,8 +95,8 @@ export function Hero({ profile }: { profile: Profile }) {
   const titleY = useTransform(progress, [0, 1], [0, 150]);
   const titleScale = useTransform(progress, [0, 1], [1, 0.93]);
   const gridScale = useTransform(progress, [0, 1], [1, 1.16]);
-  const videoScale = useTransform(progress, [0, 1], [1.05, 1.22]);
-  const videoY = useTransform(progress, [0, 1], [0, 70]);
+  const surfaceScale = useTransform(progress, [0, 1], [1.04, 1.18]);
+  const surfaceY = useTransform(progress, [0, 1], [0, 70]);
   const sheetOpacity = useTransform(progress, [0, 0.75], [1, 0]);
 
   const animate = !reduce;
@@ -103,28 +106,24 @@ export function Hero({ profile }: { profile: Profile }) {
       ref={ref}
       className="relative overflow-hidden border-b border-line"
     >
+      {/* CSS drafting grid — the fallback base that shows if WebGL is absent. */}
       <div className="bg-drafting-grid absolute inset-0" aria-hidden />
 
-      {/* Map footage — parallax layer, scaled so edges never show. */}
+      {/* GPU blueprint surface — one shader replaces the old video + canvas
+          grid: living two-scale grid, pointer plotter-light, grain, vignette.
+          Parallax-drifted on scroll. */}
       <m.div
-        style={animate ? { y: videoY, scale: videoScale } : undefined}
+        style={animate ? { y: surfaceY, scale: surfaceScale } : undefined}
         className="absolute inset-0"
         aria-hidden
       >
-        <video
-          className="hero-video h-full w-full object-cover opacity-40"
-          src="/videos/hero-bg.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+        <BlueprintSurface />
       </m.div>
 
       {/* Contrast scrim: bg-colored, strongest where the text lives. */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-t from-bg via-bg/60 to-bg/25"
+        className="absolute inset-0 bg-gradient-to-t from-bg via-bg/55 to-bg/20"
       />
       <div
         aria-hidden
@@ -177,37 +176,19 @@ export function Hero({ profile }: { profile: Profile }) {
               stiffness: 260,
               damping: 26,
             }}
-            className="annotation mb-6 text-accent"
+            className="annotation mb-6 text-accent-fg"
           >
             {t("kicker")}
           </m.p>
 
           <m.div style={animate ? { y: titleY, scale: titleScale } : undefined}>
-            <h1 className="relative max-w-3xl text-balance text-5xl font-semibold leading-tight tracking-tight sm:text-7xl">
-              <m.span
-                aria-hidden
-                initial={animate ? { opacity: 0.9 } : false}
-                animate={{ opacity: 0 }}
-                transition={{ delay: 1.6, duration: 0.9, ease: "easeOut" }}
-                className="absolute inset-0 select-none text-transparent"
-                style={{ WebkitTextStroke: "1px var(--fg-muted)" }}
-              >
-                {t("title")}
-              </m.span>
-              <m.span
-                initial={animate ? { opacity: 0, y: 18 } : false}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: 1.5,
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 26,
-                }}
-                className="inline-block"
-              >
-                {t("title")}
-              </m.span>
-            </h1>
+            <KineticText
+              as="h1"
+              text={t("title")}
+              delay={animate ? 1200 : 0}
+              stagger={46}
+              className="max-w-3xl text-balance text-5xl font-semibold leading-tight tracking-tight sm:text-7xl"
+            />
 
             <m.p
               initial={animate ? { opacity: 0, y: 16 } : false}
@@ -235,12 +216,16 @@ export function Hero({ profile }: { profile: Profile }) {
             }}
             className="mt-10 flex flex-wrap gap-4"
           >
-            <Button as="a" href="#projects">
-              {t("viewWork")}
-            </Button>
-            <Button as="a" variant="outline" href={profile.cvUrl} download>
-              {t("downloadCv")}
-            </Button>
+            <Magnetic>
+              <Button as="a" href="#projects">
+                {t("viewWork")}
+              </Button>
+            </Magnetic>
+            <Magnetic>
+              <Button as="a" variant="outline" href={profile.cvUrl} download>
+                {t("downloadCv")}
+              </Button>
+            </Magnetic>
           </m.div>
 
           <m.p

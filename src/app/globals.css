@@ -14,6 +14,10 @@
   --fg-muted: #a1a1aa;
   --line: #26262a;
   --accent: #2563eb;
+  /* Accent used as TEXT: a lighter blue so small labels clear AA (4.5:1) on
+     the near-black bg. Fills keep --accent (white-on-accent needs the darker
+     blue). See .light for the paper-mode value. */
+  --accent-fg: #4f8cff;
   --accent-soft: rgba(37, 99, 235, 0.12);
   --err: #ef4444;
   --ok: #22c55e;
@@ -32,6 +36,8 @@
   --fg: #0a0a0b;
   --fg-muted: #52525b;
   --line: #e4e4e7;
+  /* On paper the darker accent already clears AA (4.6:1); keep the brand blue. */
+  --accent-fg: #2563eb;
   --err: #dc2626;
   --ok: #16a34a;
   --grid-line: color-mix(in srgb, var(--fg) 5%, transparent);
@@ -49,6 +55,7 @@ html[lang="fa"] {
   --color-fg-muted: var(--fg-muted);
   --color-line: var(--line);
   --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
   --color-accent-soft: var(--accent-soft);
   --color-err: var(--err);
   --color-ok: var(--ok);
@@ -106,15 +113,96 @@ html[lang="fa"] h4 {
 }
 
 /*
- * Ambient hero video: only when the viewer allows motion AND the theme is
- * dark (the ink-black footage would read as a dark slab on paper mode).
+ * CAD crosshair cursor — the page as a drafting instrument. Fine pointers
+ * only; the native cursor is hidden and replaced by hairlines + a pick-box
+ * that snap-highlights anything interactive. All transitions collapse under
+ * reduced-motion. Positions are written per-frame from JS (translate3d).
  */
-.hero-video {
-  display: none;
+@media (pointer: fine) {
+  html.has-cad-cursor,
+  html.has-cad-cursor * {
+    cursor: none !important;
+  }
 }
-@media (prefers-reduced-motion: no-preference) {
-  html:not(.light) .hero-video {
-    display: block;
+
+.cad-cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.cad-cursor[data-visible="true"] {
+  opacity: 1;
+}
+
+.cad-cursor__v,
+.cad-cursor__h,
+.cad-cursor__box,
+.cad-cursor__label,
+.cad-cursor__marquee {
+  position: fixed;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.cad-cursor__v {
+  width: 1px;
+  height: 100vh;
+  background: color-mix(in srgb, var(--fg) 20%, transparent);
+}
+.cad-cursor__h {
+  width: 100vw;
+  height: 1px;
+  background: color-mix(in srgb, var(--fg) 20%, transparent);
+}
+
+.cad-cursor__box {
+  width: 18px;
+  height: 18px;
+  border: 1px solid color-mix(in srgb, var(--fg) 45%, transparent);
+  transition: width 0.15s ease, height 0.15s ease, border-color 0.15s ease;
+}
+
+.cad-cursor__label {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+.cad-cursor__marquee {
+  border: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  opacity: 0;
+  will-change: transform, width, height;
+  transition: opacity 0.15s ease, transform 0.12s ease-out,
+    width 0.12s ease-out, height 0.12s ease-out;
+}
+
+/* Locked on: the whole rig tints accent. */
+.cad-cursor[data-snap="on"] .cad-cursor__v,
+.cad-cursor[data-snap="on"] .cad-cursor__h {
+  background: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+.cad-cursor[data-snap="on"] .cad-cursor__box {
+  border-color: var(--accent);
+}
+
+/* Pen press — the pick-box stabs inward on pointer-down. */
+.cad-cursor[data-press="on"] .cad-cursor__box {
+  width: 10px;
+  height: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cad-cursor,
+  .cad-cursor__box,
+  .cad-cursor__marquee {
+    transition: none !important;
   }
 }
 
@@ -125,11 +213,231 @@ html[lang="fa"] h4 {
   background-size: 3rem 3rem;
 }
 
+/*
+ * Dimension-line hover — engineering measurement annotations that draw
+ * themselves around an element (see DimensionFrame). Logical properties keep
+ * the height dimension on the correct (end) side in RTL.
+ */
+.dim-h,
+.dim-v {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: none;
+  opacity: 0;
+  color: var(--accent);
+  transition: opacity 0.18s ease;
+}
+.dim-h {
+  inset-inline: 0;
+  top: -1.35rem;
+}
+.dim-v {
+  inset-block: 0;
+  inset-inline-end: -1.35rem;
+  flex-direction: column;
+}
+.dim-frame[data-active="on"] .dim-h,
+.dim-frame[data-active="on"] .dim-v {
+  opacity: 1;
+}
+
+.dim-line {
+  flex: 1;
+  background: var(--accent);
+  transition: transform 0.28s ease;
+}
+.dim-h .dim-line {
+  height: 1px;
+  transform: scaleX(0);
+}
+.dim-v .dim-line {
+  width: 1px;
+  transform: scaleY(0);
+}
+.dim-frame[data-active="on"] .dim-h .dim-line {
+  transform: scaleX(1);
+}
+.dim-frame[data-active="on"] .dim-v .dim-line {
+  transform: scaleY(1);
+}
+.dim-h .dim-line:first-of-type {
+  transform-origin: right;
+}
+.dim-h .dim-line:last-of-type {
+  transform-origin: left;
+}
+.dim-v .dim-line:first-of-type {
+  transform-origin: bottom;
+}
+.dim-v .dim-line:last-of-type {
+  transform-origin: top;
+}
+
+.dim-tick {
+  background: var(--accent);
+  flex: none;
+}
+.dim-h .dim-tick {
+  width: 1px;
+  height: 8px;
+}
+.dim-v .dim-tick {
+  width: 8px;
+  height: 1px;
+}
+
+.dim-label {
+  flex: none;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: var(--bg);
+  padding: 0 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dim-line {
+    transition: none !important;
+  }
+}
+
+/*
+ * Wireframe mode — the site as its own schematic. Every box outlined, media
+ * dimmed to placeholders, landmarks labelled. Toggled by WireframeController
+ * (Shift+W / command palette). It is deliberately busy — that is the point.
+ */
+.wireframe * {
+  outline: 1px solid color-mix(in srgb, var(--accent) 20%, transparent) !important;
+  outline-offset: -1px;
+}
+.wireframe img,
+.wireframe video,
+.wireframe canvas {
+  opacity: 0.12 !important;
+  filter: grayscale(1) !important;
+}
+.wireframe header,
+.wireframe main,
+.wireframe section,
+.wireframe article,
+.wireframe aside,
+.wireframe footer,
+.wireframe nav {
+  position: relative;
+}
+.wireframe header::before,
+.wireframe main::before,
+.wireframe section::before,
+.wireframe article::before,
+.wireframe aside::before,
+.wireframe footer::before,
+.wireframe nav::before {
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+  z-index: 5;
+  padding: 2px 5px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--accent);
+  pointer-events: none;
+}
+.wireframe header::before {
+  content: "header";
+}
+.wireframe main::before {
+  content: "main";
+}
+.wireframe section::before {
+  content: "section";
+}
+.wireframe article::before {
+  content: "article";
+}
+.wireframe aside::before {
+  content: "aside";
+}
+.wireframe footer::before {
+  content: "footer";
+}
+.wireframe nav::before {
+  content: "nav";
+}
+
+/* Animated underline that draws in on hover/focus (text links). */
+.link-underline {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+}
+.link-underline:hover,
+.link-underline:focus-visible {
+  background-size: 100% 1px;
+}
+html[dir="rtl"] .link-underline {
+  background-position: 100% 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  .link-underline {
+    transition: none;
+  }
+}
+
+/* Scanline texture over project covers — the "scan" motif on a blueprint. */
+.scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2px,
+    color-mix(in srgb, var(--bg) 55%, transparent) 3px,
+    color-mix(in srgb, var(--bg) 55%, transparent) 3px
+  );
+}
+
 /* Snap-grid overlay toggled from the CAD status bar — stronger, deliberate. */
 .grid-overlay {
   background-image: linear-gradient(var(--line) 1px, transparent 1px),
     linear-gradient(90deg, var(--line) 1px, transparent 1px);
   background-size: 2rem 2rem;
+}
+
+/*
+ * KineticText — per-glyph display type. The OUTER span carries the staggered
+ * entrance (mask up + fade); the INNER span is driven by JS for the cursor
+ * wave, so the two transforms never collide. Reduced motion neutralises both.
+ */
+.kinetic-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.62em);
+  transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.72s ease;
+}
+.kinetic[data-in="true"] .kinetic-char {
+  opacity: 1;
+  transform: translateY(0);
+}
+.kinetic-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kinetic-char {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .kinetic-inner {
+    transform: none !important;
+  }
 }
 
 /* Mono annotation — drawing labels, section indices, coordinates. */
@@ -164,6 +472,7 @@ html[lang="fa"] .annotation {
     --fg-muted: #333333;
     --line: #000000;
     --accent: #000000;
+    --accent-fg: #000000;
   }
 
   html,

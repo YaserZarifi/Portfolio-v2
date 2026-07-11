@@ -93,18 +93,19 @@ export type ResolvedCertificate = Omit<Certificate, "title"> & {
 
 export function getCertificates(locale: Locale): ResolvedCertificate[] {
   const items = z.array(certificateSchema).parse(readJson("certificates.json"));
-  // Dated entries first (newest first); undated keep their file order.
+  // Featured first, then dated (newest first); undated keep their file order.
   return items
     .map((c, i) => ({ ...c, title: pick(c.title, locale), i }))
-    .sort((a, b) =>
-      a.date && b.date
+    .sort((a, b) => {
+      if (!!a.featured !== !!b.featured) return a.featured ? -1 : 1;
+      return a.date && b.date
         ? b.date.localeCompare(a.date)
         : a.date
           ? -1
           : b.date
             ? 1
-            : a.i - b.i,
-    )
+            : a.i - b.i;
+    })
     .map(({ i: _i, ...c }) => c);
 }
 

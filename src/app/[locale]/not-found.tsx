@@ -10,7 +10,7 @@ export default function NotFoundPage() {
       id="content"
       className="bg-drafting-grid mx-auto flex min-h-[calc(100dvh-3.5rem)] max-w-6xl flex-col items-start justify-center px-6"
     >
-      <p className="annotation mb-6 text-accent">{t("code")}</p>
+      <p className="annotation mb-6 text-accent-fg">{t("code")}</p>
       <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
         {t("title")}
       </h1>

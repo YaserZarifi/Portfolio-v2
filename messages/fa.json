@@ -24,7 +24,8 @@
     "navigate": "پیمایش",
     "actions": "کنش‌ها",
     "links": "پیوندها",
-    "switchLanguage": "تغییر زبان"
+    "switchLanguage": "تغییر زبان",
+    "wireframe": "حالت وایرفریم"
   },
   "notFound": {
     "code": "خطا ۴۰۴ / خارج از نقشه",
@@ -56,6 +57,8 @@
     "description": "نرم‌افزار، شهرسازی، و جاهایی که هم‌پوشانی دارند.",
     "viewAll": "همه پروژه‌ها",
     "viewCaseStudy": "مطالعه موردی",
+    "open": "باز کردن نقشه",
+    "featuredLabel": "برگزیده",
     "filterAll": "همه",
     "filterCode": "کد",
     "filterArchitecture": "معماری",
@@ -71,6 +74,11 @@
     "stack": "فناوری‌ها",
     "year": "سال",
     "category": "دسته",
+    "overview": "نمای کلی",
+    "sheet": "برگه",
+    "next": "پروژه بعدی",
+    "prev": "پروژه قبلی",
+    "moreWork": "کارهای بیشتر",
     "categoryNames": {
       "code": "کد",
       "architecture": "معماری",
@@ -83,7 +91,12 @@
     "label": "گواهینامه‌ها",
     "title": "گواهینامه‌ها و افتخارات",
     "verify": "اعتبارسنجی",
-    "issuedBy": "صادرکننده"
+    "issuedBy": "صادرکننده",
+    "showAll": "نمایش همه گواهینامه‌ها",
+    "registerTitle": "دفتر گواهینامه‌ها",
+    "registerDescription": "همه گواهینامه‌ها — تأیید و تاریخ‌گذاری‌شده.",
+    "allIssuers": "همه صادرکننده‌ها",
+    "indexed": "ثبت‌شده"
   },
   "experience": {
     "index": "04",
@@ -106,6 +119,17 @@
     "sending": "در حال ارسال…",
     "success": "پیام ارسال شد — به‌زودی پاسخ می‌دهم.",
     "error": "مشکلی پیش آمد. مستقیم ایمیل بزنید.",
-    "validation": "لطفاً همه فیلدها را با ایمیل معتبر پر کنید."
+    "validation": "لطفاً همه فیلدها را با ایمیل معتبر پر کنید.",
+    "ticketTitle": "دستور کار",
+    "ticketRef": "WO-2026",
+    "fldClient": "کارفرما",
+    "fldContact": "تماس",
+    "fldScope": "شرح",
+    "fldStatus": "وضعیت",
+    "statusDraft": "پیش‌نویس",
+    "statusSending": "در حال ثبت",
+    "statusFiled": "ثبت شد",
+    "ticketEmpty": "در انتظار ورودی",
+    "stamp": "ثبت شد"
   }
 }

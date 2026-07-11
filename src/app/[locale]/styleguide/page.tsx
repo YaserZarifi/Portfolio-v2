@@ -75,7 +75,7 @@ export default function StyleguidePage({
           ))}
           <div>
             <p className="annotation mb-1">mono annotation</p>
-            <p className="annotation text-accent">
+            <p className="annotation text-accent-fg">
               PRJ-004 / MASTERPLAN — 35.6892° N, 51.3890° E
             </p>
           </div>
@@ -106,7 +106,7 @@ export default function StyleguidePage({
         <p className="annotation mb-4">CARD — REGISTRATION MARKS</p>
         <div className="grid gap-6 sm:grid-cols-2">
           <Card className="p-8">
-            <p className="annotation mb-2 text-accent">PRJ-001</p>
+            <p className="annotation mb-2 text-accent-fg">PRJ-001</p>
             <h3 className="text-xl font-medium">Sample project card</h3>
             <p className="mt-2 text-sm text-fg-muted">
               Hairline border, surface fill, corner ticks. Border shifts to

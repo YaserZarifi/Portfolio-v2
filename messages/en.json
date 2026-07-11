@@ -24,7 +24,8 @@
     "navigate": "NAVIGATE",
     "actions": "ACTIONS",
     "links": "LINKS",
-    "switchLanguage": "Switch language"
+    "switchLanguage": "Switch language",
+    "wireframe": "Wireframe mode"
   },
   "notFound": {
     "code": "ERR-404 / OFF THE PLAN",
@@ -56,6 +57,8 @@
     "description": "Software, urbanism, and the places they overlap.",
     "viewAll": "All projects",
     "viewCaseStudy": "Case study",
+    "open": "Open drawing",
+    "featuredLabel": "FEATURED",
     "filterAll": "All",
     "filterCode": "Code",
     "filterArchitecture": "Architecture",
@@ -71,6 +74,11 @@
     "stack": "STACK",
     "year": "YEAR",
     "category": "CATEGORY",
+    "overview": "OVERVIEW",
+    "sheet": "SHEET",
+    "next": "Next project",
+    "prev": "Previous project",
+    "moreWork": "More work",
     "categoryNames": {
       "code": "Code",
       "architecture": "Architecture",
@@ -83,7 +91,12 @@
     "label": "CERTIFICATES",
     "title": "Certificates & awards",
     "verify": "Verify",
-    "issuedBy": "Issued by"
+    "issuedBy": "Issued by",
+    "showAll": "Show all certificates",
+    "registerTitle": "Credential register",
+    "registerDescription": "Every certificate — verified and dated.",
+    "allIssuers": "All issuers",
+    "indexed": "INDEXED"
   },
   "experience": {
     "index": "04",
@@ -106,6 +119,17 @@
     "sending": "Sending…",
     "success": "Message sent — I'll reply soon.",
     "error": "Something went wrong. Email me directly instead.",
-    "validation": "Please fill in every field with a valid email."
+    "validation": "Please fill in every field with a valid email.",
+    "ticketTitle": "WORK ORDER",
+    "ticketRef": "WO-2026",
+    "fldClient": "CLIENT",
+    "fldContact": "CONTACT",
+    "fldScope": "SCOPE",
+    "fldStatus": "STATUS",
+    "statusDraft": "DRAFT",
+    "statusSending": "FILING",
+    "statusFiled": "FILED",
+    "ticketEmpty": "awaiting input",
+    "stamp": "SUBMITTED"
   }
 }

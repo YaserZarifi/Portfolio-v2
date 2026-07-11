@@ -7,6 +7,7 @@ import { useTheme } from "next-themes";
 import {
   ArrowRight,
   FileDown,
+  Frame,
   Github,
   Languages,
   Linkedin,
@@ -14,6 +15,7 @@ import {
   Navigation,
 } from "lucide-react";
 import { usePathname, useRouter } from "@/lib/i18n/navigation";
+import { toggleWireframe } from "@/components/dev/wireframe-controller";
 import { COMMAND_EVENT } from "./command-events";
 
 type Cmd = {
@@ -108,6 +110,16 @@ export function CommandPalette({
         run: () => {
           close();
           window.open(cvUrl, "_blank");
+        },
+      },
+      {
+        id: "wireframe",
+        label: t("command.wireframe"),
+        group: t("command.actions"),
+        icon: <Frame size={15} strokeWidth={1.5} />,
+        run: () => {
+          close();
+          toggleWireframe();
         },
       },
     ];
@@ -262,7 +274,7 @@ export function CommandPalette({
                         }`}
                       >
                         <span
-                          className={isActive ? "text-accent" : "text-fg-muted"}
+                          className={isActive ? "text-accent-fg" : "text-fg-muted"}
                         >
                           {cmd.icon}
                         </span>

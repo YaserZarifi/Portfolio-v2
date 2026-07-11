@@ -7,6 +7,7 @@ import { Link } from "@/lib/i18n/navigation";
 import { formatNumber } from "@/lib/format";
 import { Card } from "@/components/ui/card";
 import { Tag } from "@/components/ui/tag";
+import { DimensionFrame } from "@/components/cursor/dimension-frame";
 
 export function ProjectCard({
   project,
@@ -20,8 +21,9 @@ export function ProjectCard({
   const ref = `PRJ-${String(index + 1).padStart(3, "0")}`;
 
   return (
-    <Card className="flex h-full flex-col">
-      <Link
+    <DimensionFrame>
+      <Card className="flex h-full flex-col">
+        <Link
         href={`/projects/${project.slug}`}
         className="flex h-full flex-col focus-visible:outline-offset-4"
       >
@@ -42,7 +44,7 @@ export function ProjectCard({
         )}
         <div className="flex flex-1 flex-col p-6">
           <div className="mb-3 flex items-center justify-between">
-            <span className="annotation text-accent">{ref}</span>
+            <span className="annotation text-accent-fg">{ref}</span>
             <span className="annotation">
               {t(`categoryNames.${project.category}`)} —{" "}
               {formatNumber(locale, project.year)}
@@ -54,7 +56,7 @@ export function ProjectCard({
               size={16}
               strokeWidth={1.5}
               aria-hidden
-              className="ms-1 inline-block text-fg-muted transition-colors group-hover:text-accent rtl:-scale-x-100"
+              className="ms-1 inline-block text-fg-muted transition-colors group-hover:text-accent-fg rtl:-scale-x-100"
             />
           </h3>
           <p className="mt-2 flex-1 text-sm text-fg-muted">
@@ -66,7 +68,8 @@ export function ProjectCard({
             ))}
           </div>
         </div>
-      </Link>
-    </Card>
+        </Link>
+      </Card>
+    </DimensionFrame>
   );
 }

@@ -37,7 +37,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
             aria-pressed={filter === f.value}
             className={`h-11 cursor-pointer border px-4 font-mono text-sm uppercase tracking-widest transition-colors ${
               filter === f.value
-                ? "border-accent text-accent"
+                ? "border-accent text-accent-fg"
                 : "border-line text-fg-muted hover:text-fg"
             }`}
           >

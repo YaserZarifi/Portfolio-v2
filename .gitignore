@@ -25,3 +25,7 @@ npm-debug.log*
 
 # typescript
 *.tsbuildinfo
+
+# Lighthouse reports (local artifacts)
+localhost_*.report.html
+*.report.html

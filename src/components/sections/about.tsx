@@ -6,6 +6,7 @@ import { Tag } from "@/components/ui/tag";
 import { Reveal } from "@/components/motion/reveal";
 import { ZoomSection } from "@/components/motion/zoom-section";
 import { AsciiPortrait } from "@/components/about/ascii-portrait";
+import { DimensionFrame } from "@/components/cursor/dimension-frame";
 
 export function About({
   profile,
@@ -28,7 +29,9 @@ export function About({
         </Reveal>
         <Reveal delay={0.08} className="grid gap-12 lg:grid-cols-[minmax(0,340px)_1fr_1fr]">
           <div>
-            <AsciiPortrait alt={profile.name} />
+            <DimensionFrame className="h-auto!">
+              <AsciiPortrait alt={profile.name} />
+            </DimensionFrame>
             <p className="annotation mt-3">{t("figure")}</p>
           </div>
           <div className="flex flex-col gap-4">
