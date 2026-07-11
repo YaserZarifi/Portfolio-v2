@@ -1,6 +1,14 @@
 [
   {
     "title": {
+      "en": "Generative AI Fundamentals",
+      "fa": "مبانی هوش مصنوعی مولد"
+    },
+    "issuer": "Google Cloud",
+    "credentialUrl": "https://www.cloudskillsboost.google/public_profiles/9c452c01-ce7c-44ac-b06e-675fc067a6dd/badges/5956922"
+  },
+  {
+    "title": {
       "en": "J.P. Morgan — Software Engineering Job Simulation",
       "fa": "شبیه‌سازی شغلی مهندسی نرم‌افزار — J.P. Morgan"
     },
@@ -25,14 +33,6 @@
     "issuer": "Forage",
     "date": "2023-07",
     "credentialUrl": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Walmart%20USA/oX6f9BbCL9kJDJzfg_Walmart%20USA_8wkDPTnfzpP82CZAz_1688555462437_completion_certificate.pdf"
-  },
-  {
-    "title": {
-      "en": "Generative AI Fundamentals",
-      "fa": "مبانی هوش مصنوعی مولد"
-    },
-    "issuer": "Google Cloud",
-    "credentialUrl": "https://www.cloudskillsboost.google/public_profiles/9c452c01-ce7c-44ac-b06e-675fc067a6dd/badges/5956922"
   },
   {
     "title": {
@@ -105,6 +105,16 @@
     },
     "issuer": "HackerRank",
     "credentialUrl": "https://www.hackerrank.com/certificates/f4dc2ddc000b"
+  },
+  {
+    "title": {
+      "en": "Machine Learning Specialization",
+      "fa": "دوره کامل یادگیری ماشین"
+    },
+    "issuer": "Coursera - Stanford University ",
+    "date": "2025-07",
+    "featured": true,
+    "credentialUrl": "https://www.coursera.org/account/accomplishments/specialization/0CF6MKFWRBI0"
   },
   {
     "title": {
