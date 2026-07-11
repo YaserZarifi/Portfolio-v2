@@ -2,16 +2,16 @@
   "name": "Yaser Zarifi",
   "tagline": "I design systems people live in — cities and software.",
   "bio": [
-    "I started in architecture and urban planning at Kabul Polytechnic University. In my final year, the fall of Kabul ended that degree — and, for a while, everything else. I rebuilt in Tehran, earning a place at Amirkabir University of Technology (Tehran Polytechnic) to study computer engineering.",
-    "The two educations turned out to be one discipline: cities and software are both systems people live in. Today I build full-stack web products with React, Next.js, Python and Django — and bring an urbanist's eye for structure, flows and people to everything I ship.",
-    "Available for freelance work and open to research collaborations at the city–software intersection."
+    "I started in architecture and urban planning at Kabul Polytechnic University. In my final year, the fall of Kabul ended that degree, and, for a while, everything else. I rebuilt in Tehran, earning a place at Amirkabir University of Technology (Tehran Polytechnic) to study computer engineering.",
+    "The two educations turned out to be one discipline: cities and software are both systems people live in. Today I build full-stack web products with React, Next.js, Python and Django, and bring an urbanist's eye for structure, flows and people to everything I ship.",
+    "Available for freelance work and open to research collaborations at the city–software intersection or specific ones."
   ],
   "email": "yaserzarifi1378@gmail.com",
   "location": "Tehran, Iran",
-  "cvUrl": "/cv/yaser-zarifi-en.pdf",
+  "cvUrl": "https://github.com/YaserZarifi/My-Portfolio-files/blob/master/Yaser_Zarifi_CV.pdf?raw=true",
   "social": {
     "github": "https://github.com/YaserZarifi",
-    "linkedin": "https://www.linkedin.com/in/mohammad-yaser-zarifi-2b16b0205/",
+    "linkedin": "https://www.linkedin.com/in/mohammad-yaser-zarifi/",
     "x": "https://twitter.com/YaserZarifi",
     "instagram": "https://www.instagram.com/yaserzarifi/"
   }
