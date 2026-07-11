@@ -61,16 +61,19 @@ export function CaseStudyHero({
             height={project.cover.height}
             alt=""
             priority
-            className="h-full w-full object-cover grayscale"
+            className="h-full w-full object-cover grayscale opacity-70"
           />
           <div className="scanlines absolute inset-0 bg-accent/10" />
         </m.div>
       ) : null}
 
-      {/* Contrast scrims. */}
+      {/* Contrast: a uniform veil tames bright spots in the cover, and a strong
+          bottom-up gradient keeps the title over near-solid background so it
+          always reads (in either theme). */}
+      <div aria-hidden className="absolute inset-0 bg-bg/25" />
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-t from-bg via-bg/60 to-bg/20"
+        className="absolute inset-0 bg-gradient-to-t from-bg from-30% via-bg/75 to-bg/15"
       />
 
       <div className="relative mx-auto flex min-h-[56vh] max-w-6xl flex-col justify-end px-6 pb-12 pt-20 sm:min-h-[62vh]">
@@ -83,9 +86,9 @@ export function CaseStudyHero({
           as="h1"
           text={project.title}
           stagger={34}
-          className="max-w-4xl text-balance text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl"
+          className="max-w-4xl text-balance text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl [text-shadow:0_1px_16px_rgb(0_0_0/0.45)]"
         />
-        <p className="mt-5 max-w-2xl text-lg text-fg-muted sm:text-xl">
+        <p className="mt-5 max-w-2xl text-lg text-fg/80 sm:text-xl">
           {project.summary}
         </p>
       </div>

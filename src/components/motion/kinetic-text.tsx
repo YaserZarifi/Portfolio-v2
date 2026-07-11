@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type ElementType } from "react";
+import { Fragment, useEffect, useRef, type ElementType } from "react";
 
 /**
  * KineticText — display type that is alive without a variable font.
@@ -42,7 +42,6 @@ export function KineticText({
 }) {
   const ref = useRef<HTMLElement>(null);
   const whole = ARABIC.test(text);
-  const glyphs = whole ? [text] : Array.from(text);
 
   useEffect(() => {
     const el = ref.current;
@@ -127,21 +126,45 @@ export function KineticText({
     };
   }, [text, whole]);
 
+  // Arabic/Persian: never split (breaks letter-joining) — render as one unit
+  // that still animates and wraps normally at word boundaries.
+  if (whole) {
+    return (
+      <Tag ref={ref} className={`kinetic ${className}`} data-in="false">
+        <span className="kinetic-char" style={{ transitionDelay: `${delay}ms` }}>
+          <span className="kinetic-inner">{text}</span>
+        </span>
+      </Tag>
+    );
+  }
+
+  // Latin: each WORD is an unbreakable box (so a line never splits mid-word),
+  // with the per-letter animation living inside it. Spaces between words stay
+  // breakable so the title wraps cleanly.
+  const words = text.split(" ");
+  let gi = 0;
   return (
     <Tag ref={ref} className={`kinetic ${className}`} data-in="false">
-      {glyphs.map((g, i) =>
-        g === " " ? (
-          <span key={i}> </span>
-        ) : (
-          <span
-            key={i}
-            className="kinetic-char"
-            style={{ transitionDelay: `${delay + i * stagger}ms` }}
-          >
-            <span className="kinetic-inner">{g}</span>
+      {words.map((word, wi) => (
+        <Fragment key={wi}>
+          <span className="kinetic-word">
+            {Array.from(word).map((ch, ci) => {
+              const d = delay + gi * stagger;
+              gi += 1;
+              return (
+                <span
+                  key={ci}
+                  className="kinetic-char"
+                  style={{ transitionDelay: `${d}ms` }}
+                >
+                  <span className="kinetic-inner">{ch}</span>
+                </span>
+              );
+            })}
           </span>
-        ),
-      )}
+          {wi < words.length - 1 ? " " : null}
+        </Fragment>
+      ))}
     </Tag>
   );
 }

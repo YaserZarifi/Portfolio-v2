@@ -414,6 +414,12 @@ html[dir="rtl"] .link-underline {
  * entrance (mask up + fade); the INNER span is driven by JS for the cursor
  * wave, so the two transforms never collide. Reduced motion neutralises both.
  */
+/* Each word is an unbreakable box so a line never splits mid-word; the
+   letters inside still animate individually. */
+.kinetic-word {
+  display: inline-block;
+  white-space: nowrap;
+}
 .kinetic-char {
   display: inline-block;
   opacity: 0;
