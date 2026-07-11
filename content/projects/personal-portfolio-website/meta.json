@@ -1,0 +1,23 @@
+{
+  "category": "code",
+  "year": 2026,
+  "stack": [
+    "Django/DRF",
+    "React.js",
+    "PostgreSQL"
+  ],
+  "links": {
+    "live": "https://yaserzarifi.netlify.app/"
+  },
+  "featured": true,
+  "order": 2,
+  "cover": {
+    "url": "/images/projects/Screenshot 2026-07-12 015743.png",
+    "width": 1913,
+    "height": 894,
+    "alt": {
+      "en": "cover",
+      "fa": "cover"
+    }
+  }
+}
