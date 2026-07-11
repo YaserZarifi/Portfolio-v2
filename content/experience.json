@@ -14,5 +14,21 @@
     },
     "start": "2023-08",
     "end": "2024-06"
+  },
+  {
+    "org": {
+      "en": "Sharifi Neya Travel Service",
+      "fa": "خدمات مسافرتی شریفی‌نیا"
+    },
+    "role": {
+      "en": "Full-Stack Engineer",
+      "fa": "مهندس فول استک"
+    },
+    "description": {
+      "en": "I design, develop, and maintain SharifiNeyaTrip.com, an online travel booking platform that enables customers across Afghanistan to search and book bus and flight tickets with secure online payments through the HesabPay payment gateway.\nMy responsibilities include developing scalable frontend and backend features, designing and optimizing PostgreSQL databases, building RESTful APIs, integrating third-party services, and deploying containerized applications using Docker. I collaborate closely with cross-functional teams to deliver a secure, responsive, and user-friendly travel booking experience while continuously improving platform performance, reliability, and maintainability.",
+      "fa": "طراحی، توسعه و نگهداری وب‌سایت **SharifiNeyaTrip.com** را بر عهده دارم؛ یک پلتفرم آنلاین رزرو سفر که به کاربران در سراسر افغانستان امکان جستجو و رزرو بلیت هواپیما و اتوبوس را همراه با پرداخت آنلاین امن از طریق درگاه پرداخت **HesabPay** فراهم می‌کند.\n\nدر این پروژه، مسئولیت توسعه و بهبود قابلیت‌های فرانت‌اند و بک‌اند، طراحی و بهینه‌سازی پایگاه داده PostgreSQL، توسعه APIهای مبتنی بر REST، یکپارچه‌سازی سرویس‌های شخص ثالث و استقرار برنامه‌های کانتینری با استفاده از Docker را بر عهده دارم. همچنین با همکاری نزدیک با اعضای تیم، در راستای ارائه یک تجربه کاربری امن، سریع و کاربرپسند تلاش می‌کنم و به‌طور مستمر بر بهبود عملکرد، پایداری و نگهداشت‌پذیری سامانه تمرکز دارم.\n"
+    },
+    "start": "2024-06",
+    "end": null
   }
 ]
