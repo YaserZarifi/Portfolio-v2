@@ -1,0 +1,24 @@
+{
+  "category": "code",
+  "year": 2026,
+  "stack": [
+    "Django/DRF",
+    "PostgreSQL",
+    "React.js",
+    "Docker"
+  ],
+  "links": {
+    "repo": "https://github.com/YaserZarifi/Bachelor_FinalProject"
+  },
+  "featured": true,
+  "order": 1,
+  "cover": {
+    "url": "/images/projects/Screenshot 2026-07-12 014410.png",
+    "width": 1282,
+    "height": 904,
+    "alt": {
+      "en": "Cover image",
+      "fa": "Cover image"
+    }
+  }
+}
