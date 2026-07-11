@@ -10,7 +10,11 @@
       "React / Next.js",
       "Java",
       "SQL",
-      "WordPress"
+      "WordPress",
+      "C",
+      "PostgreSQL",
+      "Docker",
+      "Git/Github"
     ]
   },
   {
@@ -23,8 +27,7 @@
       "Revit",
       "SketchUp",
       "ArcGIS",
-      "Lumion / Twinmotion",
-      "3ds Max"
+      "Lumion / Twinmotion"
     ]
   },
   {
@@ -37,7 +40,8 @@
       "Computational Design",
       "Data Visualization",
       "Blender",
-      "Photoshop"
+      "Photoshop",
+      "PostGIS"
     ]
   }
 ]

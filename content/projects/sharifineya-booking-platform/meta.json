@@ -1,0 +1,25 @@
+{
+  "category": "code",
+  "year": 2026,
+  "stack": [
+    "Django",
+    "React.js",
+    "Postgresql",
+    "Docker",
+    "DRF"
+  ],
+  "links": {
+    "live": "https://www.sharifineyatrip.com/"
+  },
+  "featured": true,
+  "order": 0,
+  "cover": {
+    "url": "/images/projects/Screenshot 2026-07-12 012101.png",
+    "width": 1806,
+    "height": 903,
+    "alt": {
+      "en": "Sharifineya main page Screenshot",
+      "fa": "اسکرین شات صفحه اصلی شریفی نیا"
+    }
+  }
+}
