@@ -16,6 +16,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { getProfile } from "@/lib/content/loaders";
 import { fontVariables } from "@/lib/fonts";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { isRtl, routing, type Locale } from "@/lib/i18n/routing";
 import "../globals.css";
 
@@ -128,6 +129,7 @@ export default async function LocaleLayout({
           </NextIntlClientProvider>
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
