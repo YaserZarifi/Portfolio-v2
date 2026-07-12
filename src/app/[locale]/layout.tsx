@@ -15,6 +15,7 @@ import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { ThemeProvider } from "@/components/theme-provider";
 import { getProfile } from "@/lib/content/loaders";
 import { fontVariables } from "@/lib/fonts";
+import { Analytics } from "@vercel/analytics/next";
 import { isRtl, routing, type Locale } from "@/lib/i18n/routing";
 import "../globals.css";
 
@@ -126,6 +127,7 @@ export default async function LocaleLayout({
             </MotionProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

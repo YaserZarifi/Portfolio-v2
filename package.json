@@ -10,6 +10,7 @@
     "validate": "tsx scripts/validate-content.ts"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.544.0",
     "motion": "^12.23.12",
